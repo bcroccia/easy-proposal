@@ -4,14 +4,14 @@ import FeaturesSection from '../components/sections/FeaturesSection';
 import VideoDemo from '../components/sections/VideoDemo';
 import ChatDemo from '../components/sections/ChatDemo';
 import ImpactSection from '../components/sections/ImpactSection';
-import WorkProcess from '../components/sections/WorkProcess';
-import ComparisonSection from '../components/sections/ComparisonSection';
 import PricingSection from '../components/sections/PricingSection';
 import NextSteps from '../components/sections/NextSteps';
 import CtaSection from '../components/sections/CtaSection';
-import ServiceOptionProps from '../components/sections/ServiceOptionProps';
+// import ServiceOptionProps from '../components/sections/CompactServiceBuilder';
 import AutomationWorkflow from '../components/sections/AutomationWorkflow';
-import PDFPreviewSection from '../components/sections/PDFPreviewSection';
+import PDFPreviewSection from '../components/sections/PDFPreviewSection'; 
+import CompactServiceBuilder from '../components/sections/CompactServiceBuilder';
+import CompleteSolutionBuilder from '../components/sections/CompleteSolutionBuilder';
 
 const HomePage: React.FC = () => {
   const [showFloatingCTA, setShowFloatingCTA] = useState(false);
@@ -35,14 +35,15 @@ const HomePage: React.FC = () => {
     <>
       <HeroSection />
       <FeaturesSection />
-      <ServiceOptionProps  />
+      {/* <ServiceOptionProps  /> */}
       <AutomationWorkflow />
       <ChatDemo />
       <PDFPreviewSection />
+      <CompactServiceBuilder />
       <VideoDemo />
+      <CompleteSolutionBuilder />
       {/* <WorkProcess /> */}
       <ImpactSection />
-      <ComparisonSection />
       <PricingSection />
       <CtaSection />
       <NextSteps />

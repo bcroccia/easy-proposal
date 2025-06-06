@@ -3,6 +3,7 @@ import React from 'react';
 interface PricingPlanProps {
   title: string;
   price: string;
+  maintenances: string;
   maintenance: string;
   description: string;
   features: string[];
@@ -13,6 +14,7 @@ interface PricingPlanProps {
 const PricingPlan: React.FC<PricingPlanProps> = ({
   title,
   price,
+  maintenances,
   maintenance,
   description,
   features,
@@ -38,8 +40,9 @@ const PricingPlan: React.FC<PricingPlanProps> = ({
             {title === 'Automação' ? '🔧' : '💻'}
           </div>
           <h3 className="text-2xl font-bold mb-4 text-white">{title}</h3>
+          <div className="text-sm text-white/70 mb-4">{maintenances}</div>
           <div className="flex items-end justify-center mb-2">
-            <span className="text-4xl font-bold text-white">{price}</span>
+            <span className="text-4xl font-bold text-white">{ price}</span>
           </div>
           <div className="text-sm text-white/70 mb-4">{maintenance}</div>
         </div>
@@ -76,6 +79,7 @@ const PricingSection: React.FC = () => {
   const pricingPlans = [
     {
       title: 'Automação',
+      maintenances: 'A partir de:',
       price: 'R$ 5.500',
       maintenance: 'R$ 800/mês manutenção',
       description: 'Solução rápida via WhatsApp para validar e começar',
@@ -91,6 +95,7 @@ const PricingSection: React.FC = () => {
     {
       title: 'Micro SaaS',
       price: 'R$ 12.000',
+      maintenances: 'A partir de:',
       maintenance: 'R$ 400/mês manutenção',
       description: 'Plataforma completa com dashboard profissional',
       features: [
@@ -127,6 +132,7 @@ const PricingSection: React.FC = () => {
             <PricingPlan
               key={index}
               title={plan.title}
+              maintenances={plan.maintenances}
               price={plan.price}
               maintenance={plan.maintenance}
               description={plan.description}

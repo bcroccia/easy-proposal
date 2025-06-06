@@ -179,7 +179,7 @@ const FeaturesSection: React.FC = () => {
         </div>
 
         {/* Bottom Stats */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+        {/* <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
           {[
             { icon: '⏰', value: '30s', label: 'Tempo médio' },
             { icon: '📈', value: '95%', label: 'Redução tempo' },
@@ -192,7 +192,7 @@ const FeaturesSection: React.FC = () => {
               <div className="text-xs text-white/70">{stat.label}</div>
             </div>
           ))}
-        </div>
+        </div> */}
 
         {/* Interactive Message */}
         <div className="mt-12 text-center">

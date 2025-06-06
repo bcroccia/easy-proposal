@@ -55,7 +55,7 @@ const HeroSection: React.FC = () => {
           
           {/* Hero Video */}
           <div className="flex justify-center">
-            <div className="relative w-full max-w-md">
+            <div className="relative w-full max-w-7xl">
               
               {/* Background decoration */}
               <div className="absolute inset-0 bg-gradient-to-r from-blue-500/20 to-indigo-500/30 rounded-2xl transform rotate-6 scale-105"></div>

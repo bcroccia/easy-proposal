@@ -9,7 +9,7 @@ interface Message {
 const ChatDemo: React.FC = () => {
   // Estado para o primeiro chat
   const [messages, setMessages] = useState<Message[]>([
-    { text: "Olá! Sou o assistente de propostas. Como posso ajudar?", isUser: false, timestamp: new Date() },
+    { text: "🤖 Olá! Sou o assistente de propostas. Como posso ajudar?", isUser: false, timestamp: new Date() },
     { text: "Posso criar uma proposta personalizada para você em segundos. Quais serviços você está oferecendo?", isUser: false, timestamp: new Date() }
   ]);
   const [inputValue, setInputValue] = useState('');
@@ -18,8 +18,8 @@ const ChatDemo: React.FC = () => {
   
   // Estado para o segundo chat (automação)
   const [autoMessages, setAutoMessages] = useState<Message[]>([
-    { text: "Olá! Sou o assistente automático de propostas 🤖", isUser: false, timestamp: new Date() },
-    { text: "Para gerar sua proposta personalizada, me informe:\n\n👤 Nome da Revendedora\n💎 Nome do Produto\n📦 Quantidade", isUser: false, timestamp: new Date() }
+    { text: "🤖 Olá! Sou o assistente automático de propostas", isUser: false, timestamp: new Date() },
+    { text: "🎉 Olá! Sou o assistente.\n\nPara gerar sua proposta personalizada, me informe:\n\n👤 Nome da Revendedora\n💎 Nome do Produto\n📦 Quantidade", isUser: false, timestamp: new Date() }
   ]);
   const [autoInputValue, setAutoInputValue] = useState('');
   const [autoIsTyping, setAutoIsTyping] = useState(false);
@@ -236,7 +236,7 @@ const ChatDemo: React.FC = () => {
 
         <div className="mt-6 pt-4 border-t border-gray-200 text-center">
           <p className="text-xs text-gray-500">
-            Proposta gerada automaticamente • Sistema Anna Prata
+            Proposta gerada automaticamente • Sistema Lelis Blanc
           </p>
         </div>
       </div>

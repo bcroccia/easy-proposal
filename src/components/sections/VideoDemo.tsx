@@ -28,11 +28,12 @@ const Feature: React.FC<FeatureProps> = ({ icon, title, description, isActive, o
 };
 
 const VideoDemo: React.FC = () => {
-  const [isPlaying, setIsPlaying] = useState(false);
   const [activeFeature, setActiveFeature] = useState(0);
 
-  const handlePlayVideo = () => {
-    setIsPlaying(true);
+  const [isVideoPlaying, setIsVideoPlaying] = useState(false);
+
+  const handleVideoPlay = () => {
+    setIsVideoPlaying(true);
   };
 
   const features = [
@@ -91,60 +92,56 @@ const VideoDemo: React.FC = () => {
           
           {/* Left: Video Demo */}
           <div className="space-y-6">
-            <div className="relative w-full rounded-2xl overflow-hidden shadow-2xl">
-              <div className="relative aspect-video bg-gradient-to-br from-blue-600/80 to-indigo-700/80 overflow-hidden">
-                {!isPlaying ? (
-                  <>
-                    <div className="absolute inset-0 bg-black/30 flex items-center justify-center">
-                      <button 
-                        onClick={handlePlayVideo}
-                        className="w-16 h-16 bg-cyan-500 rounded-full flex items-center justify-center 
-                                  transform transition-transform duration-300 hover:scale-110 focus:outline-none
-                                  shadow-lg hover:shadow-cyan-500/50"
-                        aria-label="Play demo video"
-                      >
-                        <svg className="w-8 h-8 text-white ml-1" fill="currentColor" viewBox="0 0 24 24">
-                          <path d="M8 5v14l11-7z" />
-                        </svg>
-                      </button>
+              {/* Video Container */}
+              <div className="relative overflow-hidden rounded-2xl border-2 border-white/20 shadow-2xl">
+                
+                {!isVideoPlaying ? (
+                  // Video Poster/Thumbnail
+                  <div 
+                    className="relative aspect-video bg-gradient-to-br from-slate-800 via-indigo-900 to-slate-800 cursor-pointer group"
+                    onClick={handleVideoPlay}
+                  >
+                    {/* Video controls overlay */}
+                    <div className="absolute bottom-0 left-0 right-0 bg-black/80 p-4">
+                      <div className="flex items-center justify-between text-white text-sm">
+                        <div className="flex items-center">
+                          <button className="mr-4 hover:text-blue-400 transition-colors">
+                            <span className="text-lg">▶</span>
+                          </button>
+                          <span>0:00</span>
+                        </div>
+                        <div className="flex items-center space-x-4">
+                          <button className="hover:text-blue-400 transition-colors">🔊</button>
+                          <button className="hover:text-blue-400 transition-colors">⚙️</button>
+                          <button className="hover:text-blue-400 transition-colors">⛶</button>
+                        </div>
+                      </div>
                     </div>
-                  </>
+                    
+                    {/* Duration badge */}
+                    <div className="absolute bottom-16 left-4 text-white text-sm">
+                      1:45
+                    </div>
+
+                    {/* Quality badge */}
+                    <div className="absolute top-4 left-4 text-white/60 text-sm">
+                      1.00
+                    </div>
+                  </div>
                 ) : (
-                  <div className="w-full h-full">
-                    <iframe
-                      className="w-full h-full"
-                      src="https://www.youtube.com/embed/8K-hTZ4Cnkg?autoplay=1"
-                      title="Micro SaaS Demo"
-                      frameBorder="0"
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                      allowFullScreen
-                    ></iframe>
+                  // Actual Video Player
+                  <div className="aspect-video">
+                    <video 
+                      className="w-full h-full object-cover"
+                      controls
+                      autoPlay
+                      src="/assets/videos/proposta-facil.mp4"
+                    >
+                      Seu navegador não suporta vídeos HTML5.
+                    </video>
                   </div>
                 )}
               </div>
-              
-              {/* Video Controls */}
-              <div className="absolute bottom-4 left-0 right-0 mx-4 px-4 py-3 bg-black/70 backdrop-blur-sm rounded-lg flex items-center justify-between">
-                <div className="flex items-center">
-                  <button className="text-white mr-4 hover:text-cyan-400 transition-colors">
-                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      {isPlaying ? 
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 9v6m4-6v6m7-3a9 9 0 11-18 0 9 9 0 0118 0z" /> : 
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
-                      }
-                    </svg>
-                  </button>
-                  <span className="text-white text-xs">Demo SaaS Platform</span>
-                </div>
-                <div className="flex items-center">
-                  <button className="text-white hover:text-cyan-400 transition-colors">
-                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5v-4m0 4h-4m4 0l-5-5" />
-                    </svg>
-                  </button>
-                </div>
-              </div>
-            </div>
 
             {/* Feature Details */}
             <div className="bg-slate-800/50 backdrop-blur border border-white/10 rounded-xl p-6">
