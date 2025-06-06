@@ -17,10 +17,10 @@ const Header: React.FC<HeaderProps> = ({ logoSrc = logoImage }) => {
           />
           
           <div className="pl-4 border-l-3 border-secondary/50">
-            <h1 className="text-3xl md:text-[2.8rem] font-bold tracking-tighter mb-2 text-white drop-shadow-md">
+            <h1 className="md:text-[2.5rem] font-bold tracking-tighter mb-2 bg-gradient-to-r from-[#6200ff] to-[#3c71df] bg-clip-text text-transparent">
               Loophid AI
             </h1>
-            <p className="text-lg md:text-xl font-light tracking-wide text-white/90">
+            <p className="text-lg md:text-xl font-light tracking-wide to-cyan-400 bg-clip-text">
               Soluções em Automação
             </p>
           </div>
