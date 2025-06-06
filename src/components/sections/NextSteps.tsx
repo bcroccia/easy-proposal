@@ -79,7 +79,7 @@ const NextSteps: React.FC = () => {
                 <span className="mr-3">⚡</span> Transforme seu Negócio Hoje!
               </h3>
               <p className="text-white/80">
-                Sistema completamente automatizado que reduz o tempo de 2 horas para apenas 30 segundos
+                Sistema completamente automatizado que reduz o tempo de 3 horas para apenas 30 segundos
               </p>
             </div>
             
@@ -132,9 +132,14 @@ const NextSteps: React.FC = () => {
                     +55 (62) 99320-1557
                   </a>
                 </div>
+                <div className="mt-8 text-white/70 text-sm text-center"></div>
               </div>
             </div>
+            
           </div>
+        </div>
+        <div className="mt-8 text-white/70 text-sm text-center">
+          <p className="mb-2">Desenvolvido com ❤️ pela LoopHID | Soluções em Automação</p>
         </div>
       </div>
     </section>

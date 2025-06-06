@@ -3,166 +3,152 @@ import React from 'react';
 const ComparisonSection: React.FC = () => {
   const comparisons = [
     {
-      feature: 'Tempo de criação de propostas',
+      feature: 'Tempo de criação',
       traditional: 'Horas ou dias',
-      withApp: 'Minutos',
-      highlight: true
+      automation: '30 segundos',
+      microSaas: '30 segundos'
     },
     {
-      feature: 'Templates personalizáveis',
-      traditional: 'Limitados',
-      withApp: 'Ilimitados',
-      highlight: false
+      feature: 'Interface de uso',
+      traditional: 'Word/Excel manual',
+      automation: 'WhatsApp + Sheets',
+      microSaas: 'Dashboard profissional'
     },
     {
-      feature: 'Acompanhamento de propostas',
-      traditional: 'Manual',
-      withApp: 'Automático em tempo real',
-      highlight: true
+      feature: 'Personalização',
+      traditional: 'Manual e limitada',
+      automation: 'Templates automáticos',
+      microSaas: 'Totalmente customizável'
     },
     {
-      feature: 'Análise de dados',
-      traditional: 'Básica ou inexistente',
-      withApp: 'Completa e detalhada',
-      highlight: false
+      feature: 'Controle de dados',
+      traditional: 'Arquivos locais',
+      automation: 'Google Sheets',
+      microSaas: 'Banco próprio'
     },
     {
-      feature: 'Integrações com outros sistemas',
-      traditional: 'Difícil ou impossível',
-      withApp: 'Nativas e API disponível',
-      highlight: true
+      feature: 'Escalabilidade',
+      traditional: 'Muito limitada',
+      automation: 'Até 100 propostas/dia',
+      microSaas: 'Ilimitada'
     },
     {
-      feature: 'Assinatura digital',
-      traditional: 'Raramente disponível',
-      withApp: 'Integrada ao sistema',
-      highlight: false
+      feature: 'Relatórios',
+      traditional: 'Inexistentes',
+      automation: 'Básicos',
+      microSaas: 'Analytics completo'
     },
     {
-      feature: 'Automação de follow-up',
-      traditional: 'Manual',
-      withApp: 'Automatizada e agendável',
-      highlight: true
+      feature: 'Custo mensal',
+      traditional: 'Alto (tempo equipe)',
+      automation: 'R$ 800',
+      microSaas: 'R$ 400'
     }
   ];
 
   return (
-    <section id="comparacao" className="py-16 px-4">
+    <div className="">
       <div className="max-w-6xl mx-auto">
+        
         <div className="text-center mb-12">
-          <span className="inline-block px-3 py-1 bg-secondary/20 text-secondary rounded-full text-sm font-medium mb-3">
+          <div className="inline-flex items-center px-3 py-1 bg-white/10 backdrop-blur border border-white/20 rounded-full text-white text-sm font-medium mb-4">
+            <span className="mr-2">⚖️</span>
             COMPARATIVO
-          </span>
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">Tradicional vs. Nossa Solução</h2>
-          <p className="text-lg text-white/70 max-w-xl mx-auto">
-            Veja como nossa solução se compara ao processo tradicional de criação de propostas.
+          </div>
+          <h2 className="text-4xl font-bold mb-4 bg-gradient-to-r from-blue-300 to-cyan-400 bg-clip-text text-transparent">
+            Tradicional vs. Nossas Soluções
+          </h2>
+          <p className="text-lg text-white/70">
+            Veja as diferenças entre o método tradicional e nossas duas soluções
           </p>
         </div>
 
-        {/* Desktop comparison table (hidden on mobile) */}
-        <div className="hidden md:block overflow-hidden rounded-xl border border-white/10 mb-8">
-          <table className="w-full border-collapse">
-            <thead>
-              <tr>
-                <th className="py-4 px-6 bg-white/5 text-left text-white font-semibold border-b border-white/10 w-1/3">
-                  Funcionalidade
-                </th>
-                <th className="py-4 px-6 bg-white/5 text-left text-white font-semibold border-b border-white/10 w-1/3">
-                  Forma Tradicional
-                </th>
-                <th className="py-4 px-6 bg-secondary/20 text-left text-secondary font-semibold border-b border-white/10 w-1/3">
-                  Com Nossa Solução
-                </th>
-              </tr>
-            </thead>
-            <tbody>
-              {comparisons.map((item, index) => (
-                <tr key={index} className={item.highlight ? 'bg-white/5' : ''}>
-                  <td className="py-4 px-6 border-b border-white/10 text-white">
-                    {item.feature}
-                  </td>
-                  <td className="py-4 px-6 border-b border-white/10 text-white/70">
-                    <div className="flex items-center">
-                      <span className="w-5 h-5 mr-3 rounded-full bg-red-400/20 flex items-center justify-center">
-                        <svg className="w-3 h-3 text-red-400" fill="currentColor" viewBox="0 0 20 20">
-                          <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clipRule="evenodd" />
-                        </svg>
-                      </span>
-                      {item.traditional}
+        {/* Tabela Principal */}
+        <div className="bg-slate-800/30 backdrop-blur rounded-2xl border border-white/10 overflow-hidden shadow-2xl">
+          <div className="overflow-x-auto">
+            <table className="w-full min-w-[800px]">
+              <thead>
+                <tr>
+                  <th className="py-6 px-6 bg-slate-700/50 text-left text-white font-bold text-lg border-b border-white/20">
+                    Critério
+                  </th>
+                  <th className="py-6 px-6 bg-red-600/30 text-center text-white font-bold text-lg border-b border-white/20">
+                    <div className="flex items-center justify-center">
+                      <span className="mr-2">❌</span>
+                      Método Tradicional
                     </div>
-                  </td>
-                  <td className="py-4 px-6 border-b border-white/10 text-white/90 bg-secondary/10">
-                    <div className="flex items-center">
-                      <span className="w-5 h-5 mr-3 rounded-full bg-green-400/20 flex items-center justify-center">
-                        <svg className="w-3 h-3 text-green-400" fill="currentColor" viewBox="0 0 20 20">
-                          <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                        </svg>
-                      </span>
-                      {item.withApp}
+                  </th>
+                  <th className="py-6 px-6 bg-blue-600/30 text-center text-white font-bold text-lg border-b border-white/20">
+                    <div className="flex items-center justify-center">
+                      <span className="mr-2">🔧</span>
+                      Automação
                     </div>
-                  </td>
+                  </th>
+                  <th className="py-6 px-6 bg-indigo-600/30 text-center text-white font-bold text-lg border-b border-white/20">
+                    <div className="flex items-center justify-center">
+                      <span className="mr-2">💻</span>
+                      Micro SaaS
+                    </div>
+                  </th>
                 </tr>
-              ))}
-            </tbody>
-          </table>
+              </thead>
+              <tbody>
+                {comparisons.map((item, index) => (
+                  <tr key={index} className={`${index % 2 === 0 ? 'bg-white/5' : ''} hover:bg-white/10 transition-all duration-200`}>
+                    <td className="py-5 px-6 border-b border-white/10 text-white font-semibold text-base">
+                      {item.feature}
+                    </td>
+                    <td className="py-5 px-6 border-b border-white/10 text-center">
+                      <div className="flex items-center justify-center">
+                        <span className="w-3 h-3 rounded-full bg-red-500 mr-3"></span>
+                        <span className="text-red-200 font-medium">{item.traditional}</span>
+                      </div>
+                    </td>
+                    <td className="py-5 px-6 border-b border-white/10 text-center">
+                      <div className="flex items-center justify-center">
+                        <span className="w-3 h-3 rounded-full bg-blue-500 mr-3"></span>
+                        <span className="text-blue-200 font-medium">{item.automation}</span>
+                      </div>
+                    </td>
+                    <td className="py-5 px-6 border-b border-white/10 text-center">
+                      <div className="flex items-center justify-center">
+                        <span className="w-3 h-3 rounded-full bg-indigo-500 mr-3"></span>
+                        <span className="text-indigo-200 font-medium">{item.microSaas}</span>
+                      </div>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
         </div>
 
-        {/* Mobile comparison cards (visible only on mobile) */}
-        <div className="md:hidden space-y-6">
-          {comparisons.map((item, index) => (
-            <div key={index} className="bg-white/5 rounded-lg overflow-hidden border border-white/10">
-              <div className="p-4 border-b border-white/10 bg-white/5">
-                <h3 className="font-medium text-white">{item.feature}</h3>
-              </div>
-              <div className="grid grid-cols-1 divide-y divide-white/10">
-                <div className="p-4">
-                  <div className="flex items-center">
-                    <div className="w-8 h-8 rounded-full bg-red-400/20 flex items-center justify-center mr-3">
-                      <svg className="w-4 h-4 text-red-400" fill="currentColor" viewBox="0 0 20 20">
-                        <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clipRule="evenodd" />
-                      </svg>
-                    </div>
-                    <div>
-                      <p className="text-sm text-white/40 mb-1">Forma Tradicional</p>
-                      <p className="text-white/70">{item.traditional}</p>
-                    </div>
-                  </div>
-                </div>
-                <div className="p-4 bg-secondary/10">
-                  <div className="flex items-center">
-                    <div className="w-8 h-8 rounded-full bg-green-400/20 flex items-center justify-center mr-3">
-                      <svg className="w-4 h-4 text-green-400" fill="currentColor" viewBox="0 0 20 20">
-                        <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                      </svg>
-                    </div>
-                    <div>
-                      <p className="text-sm text-secondary mb-1">Nossa Solução</p>
-                      <p className="text-white">{item.withApp}</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
-
-        {/* Results Summary - Responsive for both mobile and desktop */}
+        {/* Resumo dos Resultados */}
         <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6">
-          <div className="bg-gradient-to-br from-primary-light to-primary p-6 rounded-xl text-center">
-            <div className="text-4xl font-bold mb-2 text-white">80%</div>
-            <p className="text-white/80">Redução no tempo de criação de propostas</p>
+          <div className="bg-gradient-to-br from-red-600/20 to-red-700/30 backdrop-blur border border-red-500/30 rounded-xl p-6 text-center">
+            <div className="text-4xl mb-3">❌</div>
+            <h3 className="text-xl font-bold text-white mb-2">Tradicional</h3>
+            <div className="text-3xl font-bold text-red-300 mb-1">Horas</div>
+            <p className="text-red-400 text-sm">Para criar uma proposta</p>
           </div>
-          <div className="bg-gradient-to-br from-primary-light to-primary p-6 rounded-xl text-center">
-            <div className="text-4xl font-bold mb-2 text-white">35%</div>
-            <p className="text-white/80">Aumento na taxa de conversão média</p>
+
+          <div className="bg-gradient-to-br from-blue-600/20 to-blue-700/30 backdrop-blur border border-blue-500/30 rounded-xl p-6 text-center">
+            <div className="text-4xl mb-3">🔧</div>
+            <h3 className="text-xl font-bold text-white mb-2">Automação</h3>
+            <div className="text-3xl font-bold text-blue-300 mb-1">30s</div>
+            <p className="text-blue-400 text-sm">WhatsApp para PDF</p>
           </div>
-          <div className="bg-gradient-to-br from-primary-light to-primary p-6 rounded-xl text-center">
-            <div className="text-4xl font-bold mb-2 text-white">100%</div>
-            <p className="text-white/80">De propostas com acompanhamento em tempo real</p>
+
+          <div className="bg-gradient-to-br from-indigo-600/20 to-purple-700/30 backdrop-blur border border-indigo-500/30 rounded-xl p-6 text-center">
+            <div className="text-4xl mb-3">💻</div>
+            <h3 className="text-xl font-bold text-white mb-2">Micro SaaS</h3>
+            <div className="text-3xl font-bold text-indigo-300 mb-1">∞</div>
+            <p className="text-indigo-400 text-sm">Escalabilidade total</p>
           </div>
         </div>
+
       </div>
-    </section>
+    </div>
   );
 };
 

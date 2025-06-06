@@ -1,119 +1,204 @@
-import React from 'react';
+import React, { useState } from 'react';
 
-interface StatItemProps {
+interface StepCardProps {
   number: string;
-  label: string;
-}
-
-const StatItem: React.FC<StatItemProps> = ({ number, label }) => {
-  return (
-    <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-lg p-6 flex flex-col items-center transform transition-all hover:scale-105 hover:bg-white/10">
-      <div className="text-3xl md:text-4xl lg:text-5xl font-bold text-secondary mb-3">{number}</div>
-      <div className="text-sm md:text-base text-white/80 text-center">{label}</div>
-    </div>
-  );
-};
-
-interface ComparisonCardProps {
-  isAfter: boolean;
   title: string;
-  timeDisplay: string;
-  points: string[];
+  description: string;
+  icon: string;
+  isActive: boolean;
+  onHover: () => void;
+  onLeave: () => void;
 }
 
-const ComparisonCard: React.FC<ComparisonCardProps> = ({ isAfter, title, timeDisplay, points }) => {
+const StepCard: React.FC<StepCardProps> = ({ number, title, description, icon, isActive, onHover, onLeave }) => {
   return (
-    <div className={`rounded-xl p-6 ${isAfter ? 'bg-gradient-to-br from-green-500/20 to-green-700/20 border-green-500/30' : 'bg-gradient-to-br from-red-500/20 to-red-700/20 border-red-500/30'} border backdrop-blur-sm`}>
-      <div className={`text-lg md:text-xl font-bold mb-4 ${isAfter ? 'text-green-400' : 'text-red-400'}`}>{title}</div>
-      <div className="text-3xl md:text-4xl font-bold mb-4 text-white">{timeDisplay}</div>
-      <div className="space-y-2">
-        {points.map((point, index) => (
-          <div key={index} className="flex items-start">
-            <span className={`text-lg mr-2 ${isAfter ? 'text-green-400' : 'text-red-400'}`}>•</span>
-            <span className="text-white/80">{point}</span>
-          </div>
-        ))}
+    <div 
+      className={`transition-all duration-300 p-4 rounded-xl cursor-pointer transform hover:scale-105 ${
+        isActive 
+          ? 'bg-gradient-to-br from-blue-600/20 to-cyan-600/20 border border-cyan-400/50 shadow-lg' 
+          : 'bg-white/10 border border-white/10 hover:bg-white/15'
+      }`}
+      onMouseEnter={onHover}
+      onMouseLeave={onLeave}
+    >
+      <div className="flex items-center mb-3">
+        <div className={`w-8 h-8 rounded-full ${isActive ? 'bg-cyan-500' : 'bg-blue-500'} text-white flex items-center justify-center text-sm font-bold mr-3`}>
+          {number}
+        </div>
+        <span className={`text-xl ${isActive ? 'animate-bounce' : ''}`}>{icon}</span>
       </div>
+      <h4 className={`font-bold mb-2 transition-colors ${isActive ? 'text-cyan-300' : 'text-white'}`}>
+        {title}
+      </h4>
+      <p className="text-white/80 text-sm leading-relaxed">{description}</p>
     </div>
   );
 };
 
-const ImpactSection: React.FC = () => {
+const NextSteps: React.FC = () => {
+  const [activeStep, setActiveStep] = useState<number | null>(null);
+
+  const steps = [
+    {
+      number: '1',
+      title: 'Reunião de Alinhamento',
+      description: 'Video chamada de 30min para esclarecer dúvidas e definir detalhes',
+      icon: '📞'
+    },
+    {
+      number: '2',
+      title: 'Início do Projeto',
+      description: 'Assinatura do contrato e início imediato do desenvolvimento',
+      icon: '✍️'
+    },
+    {
+      number: '3',
+      title: 'Sistema Funcionando',
+      description: 'Implementação completa em 5 semanas com equipe treinada',
+      icon: '🎯'
+    }
+  ];
+
   return (
-    <section className="py-16 px-4">
+    <div className="">
       <div className="max-w-6xl mx-auto">
-        <div className="text-center mb-16">
-          <span className="inline-block px-3 py-1 bg-secondary/20 text-secondary rounded-full text-sm font-medium mb-3">
-            ANÁLISE DE IMPACTO
-          </span>
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">💰 Análise de Impacto da Situação Atual</h2>
-          <p className="text-lg text-white/70 max-w-xl mx-auto">
-            Veja como nosso sistema pode transformar seus resultados
+        <div className="bg-slate-800/50 backdrop-blur border border-white/10 rounded-2xl p-8">
+          
+          {/* Header */}
+          <div className="text-center mb-8">
+            <div className="inline-flex items-center px-3 py-1 bg-white/10 backdrop-blur border border-white/20 rounded-full text-white text-sm font-medium mb-4">
+              <span className="mr-2">🚀</span>
+              PRÓXIMOS PASSOS
+            </div>
+            <h3 className="text-2xl font-bold mb-2 text-white">
+              Sua Automatização em 5 Semanas!
+            </h3>
+            <p className="text-white/70">
+              Processo simples e direto para transformar sua operação
+            </p>
+          </div>
+          
+          {/* Steps Grid - LADO A LADO */}
+          <div className="grid grid-cols-3 gap-4 mb-8">
+            {steps.map((step, index) => (
+              <StepCard 
+                key={step.number}
+                number={step.number}
+                title={step.title}
+                description={step.description}
+                icon={step.icon}
+                isActive={activeStep === index}
+                onHover={() => setActiveStep(index)}
+                onLeave={() => setActiveStep(null)}
+              />
+            ))}
+          </div>
+          
+          {/* Dynamic feedback */}
+          <div className="text-center mb-6">
+            <div className="h-6">
+              {activeStep === 0 && (
+                <p className="text-cyan-300 text-sm animate-fadeIn">
+                  📞 Conversa rápida para alinhar expectativas e tirar dúvidas
+                </p>
+              )}
+              {activeStep === 1 && (
+                <p className="text-cyan-300 text-sm animate-fadeIn">
+                  ✍️ Tudo certo! Agora é só aguardar o desenvolvimento
+                </p>
+              )}
+              {activeStep === 2 && (
+                <p className="text-cyan-300 text-sm animate-fadeIn">
+                  🎯 Sistema pronto e sua equipe totalmente capacitada!
+                </p>
+              )}
+            </div>
+          </div>
+          
+          {/* Main CTA */}
+          <div className="text-center mb-8">
+            <a 
+              href="https://wa.me/5562993201557?text=Olá! Vi a proposta para automação e tenho interesse em prosseguir." 
+              className="inline-block bg-gradient-to-r from-green-600 to-emerald-700 hover:from-green-700 hover:to-emerald-800 text-white font-bold py-3 px-8 rounded-xl text-lg transition-all transform hover:scale-105 shadow-lg"
+            >
+              📱 QUERO AUTOMATIZAR AGORA!
+            </a>
+          </div>
+          
+          {/* Bottom Section - LADO A LADO */}
+          <div className="border-t border-white/10 pt-6">
+            <div className="grid grid-cols-2 gap-6 items-center">
+              
+              {/* Left: Call to Action */}
+              <div>
+                <h4 className="text-xl font-bold mb-3 text-white flex items-center">
+                  <span className="mr-2">⚡</span>
+                  Pronto para Revolucionar?
+                </h4>
+                <p className="text-white/80 text-sm mb-4 leading-relaxed">
+                  Sistema que reduz 3 horas para 30 segundos. 
+                  A LoopHID implementa soluções que fazem diferença real.
+                </p>
+                <a 
+                  href="https://wa.me/5562993201557?text=Olá! Vi a proposta para automação e tenho interesse em prosseguir." 
+                  className="inline-block bg-white hover:bg-white/90 text-slate-900 font-semibold py-2 px-6 rounded-lg transition-all transform hover:scale-105 shadow-md text-sm"
+                >
+                  Agendar Reunião
+                </a>
+              </div>
+              
+              {/* Right: Contact Card */}
+              <div className="bg-white/5 rounded-xl p-4 border border-white/10">
+                <div className="flex items-center mb-4">
+                  <div className="w-10 h-10 rounded-full bg-blue-500/20 flex items-center justify-center mr-3">
+                    <span className="text-blue-400 text-lg">🔧</span>
+                  </div>
+                  <div>
+                    <h5 className="font-bold text-white">LoopHID</h5>
+                    <p className="text-xs text-white/70">Soluções em Automação</p>
+                  </div>
+                </div>
+                
+                <div className="space-y-2">
+                  <a 
+                    href="mailto:contato@loophid.com.br" 
+                    className="text-xs text-white/80 hover:text-white flex items-center transition-colors"
+                  >
+                    <span className="mr-2">📧</span>
+                    contato@loophid.com.br
+                  </a>
+                  <a 
+                    href="tel:+5562993201557" 
+                    className="text-xs text-white/80 hover:text-white flex items-center transition-colors"
+                  >
+                    <span className="mr-2">📱</span>
+                    +55 (62) 99320-1557
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        {/* Footer */}
+        <div className="mt-6 text-center">
+          <p className="text-white/50 text-xs">
+            Desenvolvido com ❤️ pela LoopHID | Soluções em Automação
           </p>
-        </div>
-        
-        {/* Stats Grid - Mobile responsive */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
-          <StatItem 
-            number="15h" 
-            label="Estimativa de horas que podem ser otimizadas por semana" 
-          />
-          <StatItem 
-            number="R$ 3.000" 
-            label="Potencial de economia mensal" 
-          />
-          <StatItem 
-            number="40%" 
-            label="Percentual estimado de propostas que sofrem atrasos" 
-          />
-        </div>
-        
-        {/* Conclusion - Responsive typography */}
-        <div className="bg-secondary/10 border border-secondary/20 rounded-xl p-6 mb-16 text-center backdrop-blur-sm">
-          <p className="text-lg md:text-xl lg:text-2xl font-bold text-white">
-            Conclusão: No total, estima-se que sua operação pode economizar até 
-            <span className="text-secondary"> R$ 36.000 </span> por ano.
-          </p>
-        </div>
-        
-        {/* Before vs After Comparison - Mobile friendly layout */}
-        <h3 className="text-2xl md:text-3xl font-bold mb-8 text-center">Compare a diferença</h3>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          <ComparisonCard 
-            isAfter={false}
-            title="❌ ANTES - Processo Manual"
-            timeDisplay="2h"
-            points={[
-              "Criação manual demorada",
-              "Sujeito a erros humanos",
-              "Oportunidades perdidas"
-            ]}
-          />
-          <ComparisonCard 
-            isAfter={true}
-            title="✅ DEPOIS - Automação Inteligente"
-            timeDisplay="30s"
-            points={[
-              "Geração instantânea de propostas",
-              "Precisão e consistência garantidas",
-              "Mais tempo para vendas estratégicas"
-            ]}
-          />
-        </div>
-        
-        {/* Mobile call to action */}
-        <div className="mt-12 pt-8 border-t border-white/10 text-center md:hidden">
-          <a 
-            href="#investimento" 
-            className="inline-block px-6 py-3 bg-secondary hover:bg-secondary/90 text-white font-medium rounded-lg 
-                      transition-all duration-300 transform hover:scale-105 shadow-lg"
-          >
-            Veja nossos planos
-          </a>
         </div>
       </div>
-    </section>
+
+      {/* <style jsx>{`
+        @keyframes fadeIn {
+          from { opacity: 0; transform: translateY(10px); }
+          to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fadeIn {
+          animation: fadeIn 0.3s ease-out;
+        }
+      `}</style> */}
+    </div>
   );
 };
 
-export default ImpactSection;
+export default NextSteps;

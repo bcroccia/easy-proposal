@@ -1,0 +1,44 @@
+/* Animações para o chat */
+
+/* Animação dos pontos de digitação */
+@keyframes typingDot1 {
+  0%, 20% { opacity: 0.2; }
+  30%, 60% { opacity: 1; }
+  100% { opacity: 0.2; }
+}
+
+@keyframes typingDot2 {
+  0%, 30% { opacity: 0.2; }
+  40%, 70% { opacity: 1; }
+  100% { opacity: 0.2; }
+}
+
+@keyframes typingDot3 {
+  0%, 40% { opacity: 0.2; }
+  50%, 80% { opacity: 1; }
+  100% { opacity: 0.2; }
+}
+
+/* Animação da barra de progresso */
+@keyframes progress {
+  0% { width: 0%; }
+  50% { width: 70%; }
+  100% { width: 100%; }
+}
+
+/* Aplicação das animações */
+.animate-typing-dot1 {
+  animation: typingDot1 1.4s infinite;
+}
+
+.animate-typing-dot2 {
+  animation: typingDot2 1.4s infinite;
+}
+
+.animate-typing-dot3 {
+  animation: typingDot3 1.4s infinite;
+}
+
+.animate-progress {
+  animation: progress 3s forwards;
+}

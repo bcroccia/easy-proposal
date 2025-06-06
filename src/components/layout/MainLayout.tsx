@@ -27,7 +27,7 @@ const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
   }, [menuActive]);
 
   return (
-    <div className="flex flex-col min-h-screen bg-gradient-to-br from-[#120e29] to-[#2d1d50] text-white overflow-x-hidden">
+    <div className="flex flex-col min-h-screen bg-gradient-to-br from-[#131313] to-[#08185c] text-white overflow-x-hidden">
       <Header />
       
       <main className={`transition-all duration-300 flex-grow pt-20 ${menuActive ? 'pl-[280px]' : 'pl-0'} md:px-6`}>

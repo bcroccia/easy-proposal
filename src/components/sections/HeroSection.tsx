@@ -1,72 +1,121 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 const HeroSection: React.FC = () => {
+  const [isVideoPlaying, setIsVideoPlaying] = useState(false);
+
+  const handleVideoPlay = () => {
+    setIsVideoPlaying(true);
+  };
+  // <div className="bg-gradient-to-br from-slate-900 via-indigo-900 to-slate-800 py-16 md:py-24 px-4 min-h-screen flex items-center">
+
   return (
-    <section className="py-12 md:py-20 px-4">
-      <div className="max-w-6xl mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+    <div className="">
+      <div className="max-w-6xl mx-auto w-full">
+        <div className="grid grid-cols-2 gap-12 items-center">
+          
           {/* Hero Content */}
-          <div className="order-2 lg:order-1">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 bg-gradient-to-r from-secondary to-blue-300 bg-clip-text text-transparent leading-tight">
-              Revolucione seu Processo de Propostas Comerciais
+          <div>
+            
+            {/* Main Title */}
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-8">
+              <span className="bg-gradient-to-r from-blue-300 to-cyan-400 bg-clip-text text-transparent">
+                Revolucione seu Processo de Propostas Comerciais
+              </span>
             </h1>
+            
+            {/* Subtitle */}
             <p className="text-lg md:text-xl text-white/80 mb-8 leading-relaxed">
               Automatize todo o processo de criação de propostas com uma solução inteligente 
               que reduz o tempo de preparação em até 80% e aumenta suas chances de fechamento.
             </p>
             
-            <div className="flex flex-wrap gap-4">
-              <a 
-                href="#demo-video" 
-                className="px-8 py-3 bg-secondary hover:bg-secondary/90 text-white font-medium rounded-lg 
-                          transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-secondary/50 
-                          flex items-center justify-center"
+            {/* CTA Buttons */}
+            <div className="flex flex-wrap gap-4 mb-8">
+              <button 
+                onClick={handleVideoPlay}
+                className="px-8 py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg transition-all duration-300 flex items-center justify-center"
               >
                 <span className="mr-2">▶</span>
                 Ver Demo
-              </a>
+              </button>
               
-              <a 
-                href="#investimento" 
-                className="px-8 py-3 bg-white/10 backdrop-blur-sm hover:bg-white/20 text-white 
-                          border border-white/30 font-medium rounded-lg transition-all duration-300 
-                          transform hover:scale-105"
-              >
+              <button className="px-8 py-3 bg-transparent border border-white/30 hover:bg-white/10 text-white font-medium rounded-lg transition-all duration-300">
                 Preços e Planos
-              </a>
+              </button>
             </div>
             
-            <div className="mt-8 p-4 bg-white/5 backdrop-blur-sm border border-white/10 rounded-lg">
+            {/* Results Box */}
+            <div className="p-4 bg-white/5 backdrop-blur-sm border border-white/10 rounded-lg">
               <p className="text-white/70 text-sm">
-                ✅ <span className="font-medium text-secondary">Resultados comprovados:</span> Nossos clientes 
+                ✅ <span className="font-medium text-green-400">Resultados comprovados:</span> Nossos clientes 
                 relatam redução média de 78% no tempo de preparação de propostas e aumento de 35% na taxa de conversão.
               </p>
             </div>
           </div>
           
-          {/* Hero Image/Video */}
-          <div className="order-1 lg:order-2 flex justify-center">
+          {/* Hero Video */}
+          <div className="flex justify-center">
             <div className="relative w-full max-w-md">
-              <div className="absolute inset-0 bg-gradient-to-r from-secondary/20 to-primary/30 rounded-2xl transform rotate-6 scale-105"></div>
+              
+              {/* Background decoration */}
+              <div className="absolute inset-0 bg-gradient-to-r from-blue-500/20 to-indigo-500/30 rounded-2xl transform rotate-6 scale-105"></div>
+              
+              {/* Video Container */}
               <div className="relative overflow-hidden rounded-2xl border-2 border-white/20 shadow-2xl">
-                <video 
-                  className="w-full h-auto"
-                  poster="/demo-poster.jpg"
-                  controls
-                >
-                  <source src="/demo-video.mp4" type="video/mp4" />
-                  Seu navegador não suporta vídeos HTML5.
-                </video>
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent pointer-events-none"></div>
-                <div className="absolute bottom-4 left-4 bg-black/70 backdrop-blur-sm px-3 py-1 rounded-full text-xs text-white">
-                  1:45
-                </div>
+                
+                {!isVideoPlaying ? (
+                  // Video Poster/Thumbnail
+                  <div 
+                    className="relative aspect-video bg-gradient-to-br from-slate-800 via-indigo-900 to-slate-800 cursor-pointer group"
+                    onClick={handleVideoPlay}
+                  >
+                    {/* Video controls overlay */}
+                    <div className="absolute bottom-0 left-0 right-0 bg-black/80 p-4">
+                      <div className="flex items-center justify-between text-white text-sm">
+                        <div className="flex items-center">
+                          <button className="mr-4 hover:text-blue-400 transition-colors">
+                            <span className="text-lg">▶</span>
+                          </button>
+                          <span>0:00</span>
+                        </div>
+                        <div className="flex items-center space-x-4">
+                          <button className="hover:text-blue-400 transition-colors">🔊</button>
+                          <button className="hover:text-blue-400 transition-colors">⚙️</button>
+                          <button className="hover:text-blue-400 transition-colors">⛶</button>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    {/* Duration badge */}
+                    <div className="absolute bottom-16 left-4 text-white text-sm">
+                      1:45
+                    </div>
+
+                    {/* Quality badge */}
+                    <div className="absolute top-4 left-4 text-white/60 text-sm">
+                      1.00
+                    </div>
+                  </div>
+                ) : (
+                  // Actual Video Player
+                  <div className="aspect-video">
+                    <video 
+                      className="w-full h-full object-cover"
+                      controls
+                      autoPlay
+                      poster="/demo-poster.jpg"
+                    >
+                      <source src="/demo-video.mp4" type="video/mp4" />
+                      Seu navegador não suporta vídeos HTML5.
+                    </video>
+                  </div>
+                )}
               </div>
             </div>
           </div>
         </div>
       </div>
-    </section>
+    </div>
   );
 };
 

@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import HeroSection from '../components/sections/HeroSection';
 import FeaturesSection from '../components/sections/FeaturesSection';
 import VideoDemo from '../components/sections/VideoDemo';
-import WorkflowSection from '../components/sections/WorkflowSection';
 import ChatDemo from '../components/sections/ChatDemo';
 import ImpactSection from '../components/sections/ImpactSection';
 import WorkProcess from '../components/sections/WorkProcess';
@@ -10,6 +9,9 @@ import ComparisonSection from '../components/sections/ComparisonSection';
 import PricingSection from '../components/sections/PricingSection';
 import NextSteps from '../components/sections/NextSteps';
 import CtaSection from '../components/sections/CtaSection';
+import ServiceOptionProps from '../components/sections/ServiceOptionProps';
+import AutomationWorkflow from '../components/sections/AutomationWorkflow';
+import PDFPreviewSection from '../components/sections/PDFPreviewSection';
 
 const HomePage: React.FC = () => {
   const [showFloatingCTA, setShowFloatingCTA] = useState(false);
@@ -33,15 +35,17 @@ const HomePage: React.FC = () => {
     <>
       <HeroSection />
       <FeaturesSection />
-      <VideoDemo />
-      <WorkflowSection />
+      <ServiceOptionProps  />
+      <AutomationWorkflow />
       <ChatDemo />
-      <WorkProcess />
+      <PDFPreviewSection />
+      <VideoDemo />
+      {/* <WorkProcess /> */}
       <ImpactSection />
       <ComparisonSection />
       <PricingSection />
-      <NextSteps />
       <CtaSection />
+      <NextSteps />
       
       {/* Floating CTA for mobile - responsive */}
       {showFloatingCTA && (
