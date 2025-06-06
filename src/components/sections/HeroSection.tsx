@@ -103,9 +103,8 @@ const HeroSection: React.FC = () => {
                       className="w-full h-full object-cover"
                       controls
                       autoPlay
-                      poster="/demo-poster.jpg"
+                      src="/assets/videos/proposta-facil.mp4"
                     >
-                      <source src="/demo-video.mp4" type="video/mp4" />
                       Seu navegador não suporta vídeos HTML5.
                     </video>
                   </div>

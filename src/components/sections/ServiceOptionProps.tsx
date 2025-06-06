@@ -138,7 +138,7 @@ const ServiceOptions: React.FC = () => {
   const automationService = {
     icon: '🔧',
     title: 'Automação',
-    subtitle: 'Solução rápida via WhatsApp',
+    subtitle: 'Solução rápida via WhatsApp a partir de:',
     features: [
       'WhatsApp Bot',
       'Google Sheets',
