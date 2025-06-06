@@ -1,31 +1,41 @@
 import React from 'react';
 
 const HeroSection: React.FC = () => {
-  // Removida a lógica de clique, o vídeo agora é sempre reproduzido automaticamente como um GIF
-  // <div className="bg-gradient-to-br from-slate-900 via-indigo-900 to-slate-800 py-16 md:py-24 px-4 min-h-screen flex items-center">
-
   return (
-    <div className="">
-      <div className="max-w-[1600px] mx-auto w-full px-2">
-        <div className="grid grid-cols-1 md:grid-cols-5 gap-4 items-start">
+    <div style={{ width: '100%', maxWidth: 'none' }}>
+      <div style={{ width: '100%', padding: '0 1rem' }}>
+        {/* Container principal RESPONSIVO */}
+        <div style={{ 
+          display: 'flex', 
+          flexDirection: window.innerWidth < 768 ? 'column' : 'row',
+          gap: window.innerWidth < 768 ? '1.5rem' : '2rem',
+          alignItems: 'flex-start',
+          width: '100%'
+        }}>
           
-          {/* Hero Content */}
-          <div className="md:col-span-2 pr-0 md:pr-4">
+          {/* Conteúdo Hero - RESPONSIVO E BONITO */}
+          <div style={{ 
+            width: window.innerWidth < 768 ? '100%' : '32%', // AUMENTADO para 32%
+            minWidth: window.innerWidth < 768 ? 'auto' : '380px',
+            paddingRight: window.innerWidth < 768 ? '0' : '2.5rem',
+            paddingTop: window.innerWidth < 768 ? '0' : '2rem',
+            flexShrink: 0
+          }}>
             
-            {/* Main Title */}
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-8">
+            {/* Título Principal - FORMATADO */}
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-10">
               <span className="bg-gradient-to-r from-blue-300 to-cyan-400 bg-clip-text text-transparent">
                 Revolucione seu Processo de Propostas Comerciais
               </span>
             </h1>
             
-            {/* Subtitle */}
-            <p className="text-lg md:text-xl text-white/80 mb-8 leading-relaxed">
+            {/* Subtítulo - ESPAÇADO */}
+            <p className="text-lg md:text-xl text-white/80 mb-12 leading-relaxed">
               Automatize todo o processo de criação de propostas com uma solução inteligente 
               que reduz o tempo de preparação em até 80% e aumenta suas chances de fechamento.
             </p>
             
-            {/* CTA Buttons */}
+            {/* Botões CTA - ESPAÇADOS */}
             <div className="flex flex-wrap gap-4 mb-8">
               <button 
                 className="px-8 py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg transition-all duration-300 flex items-center justify-center"
@@ -39,7 +49,7 @@ const HeroSection: React.FC = () => {
               </button>
             </div>
             
-            {/* Results Box */}
+            {/* Caixa de Resultados */}
             <div className="p-4 bg-white/5 backdrop-blur-sm border border-white/10 rounded-lg">
               <p className="text-white/70 text-sm">
                 ✅ <span className="font-medium text-green-400">Resultados comprovados:</span> Nossos clientes 
@@ -48,19 +58,47 @@ const HeroSection: React.FC = () => {
             </div>
           </div>
           
-          {/* Hero Video */}
-          <div className="flex justify-center mt-6 md:mt-0 md:col-span-3">
-            <div className="relative w-full">
+          {/* Vídeo Hero - MANTENDO O TAMANHO GIGANTE */}
+          <div style={{ 
+            width: window.innerWidth < 768 ? '100%' : '68%', // AJUSTADO para dar mais espaço ao texto
+            minWidth: window.innerWidth < 768 ? 'auto' : '850px', // MANTIDO GRANDE
+            maxWidth: 'none'
+          }}>
+            <div style={{ position: 'relative', width: '100%' }}>
               
-              {/* Background decoration */}
-              <div className="absolute inset-0 bg-gradient-to-r from-blue-500/20 to-indigo-500/30 rounded-2xl transform rotate-6 scale-105"></div>
+              {/* Decoração de Fundo */}
+              <div style={{
+                position: 'absolute',
+                inset: '0',
+                background: 'linear-gradient(to right, rgba(59, 130, 246, 0.2), rgba(99, 102, 241, 0.3))',
+                borderRadius: '1rem',
+                transform: window.innerWidth < 768 ? 'rotate(3deg) scale(1.02)' : 'rotate(6deg) scale(1.05)'
+              }}></div>
               
-              {/* Video Container */}
-              <div className="relative overflow-hidden rounded-2xl border-2 border-white/20 shadow-2xl">
-                {/* Video Container preenchendo completamente as bordas */}
-                <div className="h-[800px] w-[1200px] max-w-full overflow-hidden">
+              {/* Container do Vídeo - GIGANTE */}
+              <div style={{
+                position: 'relative',
+                overflow: 'hidden',
+                borderRadius: '1rem',
+                border: '2px solid rgba(255, 255, 255, 0.2)',
+                boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.25), 0 25px 50px -12px rgba(0, 0, 0, 0.25)',
+                width: '100%'
+              }}>
+                {/* Container do Vídeo RESPONSIVO */}
+                <div style={{ 
+                  position: 'relative',
+                  width: '100%',
+                  height: window.innerWidth < 768 ? '400px' : window.innerWidth < 1024 ? '550px' : '650px', // MANTIDO GRANDE
+                  minWidth: window.innerWidth < 768 ? 'auto' : '850px'
+                }}>
                   <video 
-                    className="w-full h-full object-fill" 
+                    style={{ 
+                      width: '100%', 
+                      height: '100%', 
+                      objectFit: 'cover',
+                      objectPosition: 'center top', // FOCA NA PARTE DE CIMA do vídeo
+                      display: 'block'
+                    }}
                     autoPlay
                     muted
                     loop
@@ -70,8 +108,17 @@ const HeroSection: React.FC = () => {
                     Seu navegador não suporta vídeos HTML5.
                   </video>
                   
-                  {/* Quality badge */}
-                  <div className="absolute top-4 left-4 bg-black/50 px-2 py-1 rounded text-white/60 text-xs">
+                  {/* Badge de Qualidade */}
+                  <div style={{
+                    position: 'absolute',
+                    top: '1rem',
+                    left: '1rem',
+                    background: 'rgba(0, 0, 0, 0.5)',
+                    padding: '0.25rem 0.5rem',
+                    borderRadius: '0.25rem',
+                    color: 'rgba(255, 255, 255, 0.6)',
+                    fontSize: '0.75rem'
+                  }}>
                     AUTO-PLAY
                   </div>
                 </div>

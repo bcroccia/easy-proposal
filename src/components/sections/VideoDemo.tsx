@@ -30,8 +30,6 @@ const Feature: React.FC<FeatureProps> = ({ icon, title, description, isActive, o
 const VideoDemo: React.FC = () => {
   const [activeFeature, setActiveFeature] = useState(0);
   
-  // Removida a lógica de clique, o vídeo agora é sempre reproduzido automaticamente como um GIF
-
   const features = [
     {
       icon: '📊',
@@ -67,8 +65,8 @@ const VideoDemo: React.FC = () => {
   ];
 
   return (
-    <div className="">
-      <div className="max-w-6xl mx-auto">
+    <div style={{ width: '100%', maxWidth: 'none', padding: '0 1rem' }}>
+      <div style={{ maxWidth: 'none', width: '100%' }}>
         
         {/* Header */}
         <div className="text-center mb-10 mt-10">
@@ -84,15 +82,37 @@ const VideoDemo: React.FC = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
+        {/* Container Principal RESPONSIVO */}
+        <div style={{
+          display: 'flex',
+          flexDirection: window.innerWidth < 1024 ? 'column' : 'row',
+          gap: window.innerWidth < 1024 ? '2rem' : '3rem',
+          alignItems: 'flex-start',
+          width: '100%'
+        }}>
           
-          {/* Left: Video Demo */}
-          <div className="space-y-6">
-              {/* Video Container - Autoplay como GIF */}
+          {/* Left: Video Demo - GIGANTE */}
+          <div style={{
+            width: window.innerWidth < 1024 ? '100%' : '65%',
+            minWidth: window.innerWidth < 1024 ? 'auto' : '800px',
+            maxWidth: 'none'
+          }}>
+            <div style={{ marginBottom: '1.5rem' }}>
+              {/* Video Container - MESMO TAMANHO DO HERO */}
               <div className="relative overflow-hidden rounded-2xl border-2 border-white/20 shadow-2xl">
-                <div className="aspect-video">
+                <div style={{
+                  position: 'relative',
+                  width: '100%',
+                  height: window.innerWidth < 768 ? '400px' : window.innerWidth < 1024 ? '500px' : '600px'
+                }}>
                   <video 
-                    className="w-full h-full object-cover"
+                    style={{
+                      width: '100%',
+                      height: '100%',
+                      objectFit: 'cover',
+                      objectPosition: 'center top',
+                      display: 'block'
+                    }}
                     autoPlay
                     muted
                     loop
@@ -108,8 +128,9 @@ const VideoDemo: React.FC = () => {
                   </div>
                 </div>
               </div>
+            </div>
 
-            {/* Feature Details */}
+            {/* Feature Details - ABAIXO DO VÍDEO */}
             <div className="bg-slate-800/50 backdrop-blur border border-white/10 rounded-xl p-6">
               <div className="text-center">
                 <div className="text-4xl mb-3">{features[activeFeature].icon}</div>
@@ -121,8 +142,12 @@ const VideoDemo: React.FC = () => {
             </div>
           </div>
 
-          {/* Right: Features & Benefits */}
-          <div className="space-y-6">
+          {/* Right: Features & Benefits - BALANCEADO */}
+          <div style={{
+            width: window.innerWidth < 1024 ? '100%' : '35%',
+            minWidth: window.innerWidth < 1024 ? 'auto' : '350px',
+            flexShrink: 0
+          }}>
             <div>
               <h3 className="text-xl font-bold text-white mb-4">🚀 Funcionalidades Principais</h3>
               <div className="grid grid-cols-1 gap-3">
@@ -136,37 +161,6 @@ const VideoDemo: React.FC = () => {
                 ))}
               </div>
             </div>
-
-            {/* <div>
-              <h3 className="text-xl font-bold text-white mb-4">✨ Diferenciais</h3>
-              <div className="grid grid-cols-2 gap-3">
-                {benefits.map((benefit, index) => (
-                  <div key={index} className="bg-slate-700/50 border border-white/10 rounded-lg p-3 text-center hover:border-cyan-400/30 transition-colors">
-                    <div className="text-2xl mb-1">{benefit.icon}</div>
-                    <h4 className="text-sm font-semibold text-white mb-1">{benefit.title}</h4>
-                    <p className="text-xs text-white/70">{benefit.description}</p>
-                  </div>
-                ))}
-              </div>
-            </div> */}
-
-            {/* Results */}
-            {/* <div className="bg-gradient-to-r from-slate-700/60 to-indigo-700/60 backdrop-blur border border-white/10 rounded-xl p-6">
-              <h4 className="text-lg font-bold text-white mb-4 text-center">📊 Com o Micro SaaS</h4>
-              <div className="grid grid-cols-2 gap-4 mb-4">
-                <div className="text-center">
-                  <div className="text-2xl font-bold text-cyan-400">∞</div>
-                  <div className="text-xs text-white/80">Escalabilidade</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-2xl font-bold text-blue-400">100%</div>
-                  <div className="text-xs text-white/80">Controle</div>
-                </div>
-              </div>
-              <button className="w-full px-4 py-3 bg-gradient-to-r from-blue-600 to-indigo-700 hover:from-blue-700 hover:to-indigo-800 text-white font-semibold rounded-lg transition-all transform hover:scale-105">
-                💻 Ver Demo Completo
-              </button>
-            </div> */}
           </div>
 
         </div>
