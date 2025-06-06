@@ -128,6 +128,7 @@ const PricingSection: React.FC = () => {
 
         {/* Pricing Cards - LADO A LADO SEMPRE */}
         <div className="grid grid-cols-2 gap-8 mb-12">
+          
           {pricingPlans.map((plan, index) => (
             <PricingPlan
               key={index}
@@ -142,7 +143,9 @@ const PricingSection: React.FC = () => {
             />
           ))}
         </div>
-        
+        {/* <p className="text-white/80 text-s mt-2 text-center mb-2">
+              Valores adicionais de manutenção podem ser variáveis de acordo com a usabilidade do cliente
+        </p> */}
         <div className="bg-slate-800/50 backdrop-blur border border-white/10 rounded-2xl p-8">
           <div className="text-center">
             <h3 className="text-2xl font-bold text-white mb-4">

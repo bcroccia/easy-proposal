@@ -341,7 +341,7 @@ const CompleteSolutionBuilder: React.FC = () => {
               🚀 Escolher Plano {currentPreset.name} - R$ {(currentPreset.totalPrice / 1000).toFixed(1)}k
             </button>
             <p className="text-white/70 text-xs mt-2">
-              Implementação em 30 dias • Suporte incluído • Garantia de 90 dias
+            Valores adicionais de manutenção podem ser variáveis de acordo com a usabilidade do cliente
             </p>
           </div>
         </div>
