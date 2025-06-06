@@ -147,9 +147,9 @@ const FeaturesSection: React.FC = () => {
       <div className="max-w-7xl mx-auto">
         
         {/* Header */}
-        <div className="text-center mb-16">
+        <div className="text-center mb-16" style={{ marginTop: '50px' }}>
           <div className="inline-flex items-center px-4 py-2 bg-white/10 backdrop-blur border border-white/20 rounded-full text-white text-sm font-medium mb-6">
-            <span className="mr-2">⚡</span>
+            <span className="mr-2 text-cyan-400">⚡</span>
             RECURSOS PRINCIPAIS
           </div>
           <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-blue-300 to-cyan-400 bg-clip-text text-transparent">

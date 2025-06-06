@@ -246,7 +246,7 @@ const ChatDemo: React.FC = () => {
   return (
     <div className="">
       <div className="max-w-6xl mx-auto">
-        <div className="text-center mb-12">
+        <div className="text-center mb-12 mt-12">
           <div className="inline-flex items-center px-3 py-1 bg-white/10 backdrop-blur border border-white/20 rounded-full text-white text-sm font-medium mb-4">
             <span className="mr-2">💬</span>
             ASSISTENTE INTELIGENTE

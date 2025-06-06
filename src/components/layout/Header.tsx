@@ -1,10 +1,11 @@
 import React from 'react';
+import logoImage from '../../../src/assets/logo/logo-loophid.png';
 
 interface HeaderProps {
   logoSrc?: string;
 }
 
-const Header: React.FC<HeaderProps> = ({ logoSrc = "../../assets/logo/logo-loophid.png" }) => {
+const Header: React.FC<HeaderProps> = ({ logoSrc = logoImage }) => {
   return (
     <header className="">
       <div className="container mx-auto px-4 py-6 flex items-center justify-center">
@@ -12,6 +13,7 @@ const Header: React.FC<HeaderProps> = ({ logoSrc = "../../assets/logo/logo-looph
           <img 
             src={logoSrc} 
             alt="LoopHid Logo"
+            className="h-24 w-auto"
           />
           
           <div className="pl-4 border-l-3 border-secondary/50">

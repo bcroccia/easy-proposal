@@ -65,7 +65,7 @@ const AutomationWorkflow: React.FC = () => {
       <div className="max-w-5xl mx-auto">
         
         {/* Header */}
-        <div className="text-center mb-10">
+        <div className="text-center mb-10 mt-10">
           <div className="inline-flex items-center px-3 py-1 bg-white/10 backdrop-blur border border-white/20 rounded-full text-white text-xs font-medium mb-4">
             <span className="mr-1">⚡</span>
             AUTOMAÇÃO EM AÇÃO

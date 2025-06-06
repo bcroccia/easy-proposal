@@ -62,10 +62,10 @@ const NextSteps: React.FC = () => {
   return (
     <div className="">
       <div className="max-w-6xl mx-auto">
-        <div className="bg-slate-800/50 backdrop-blur border border-white/10 rounded-2xl p-8">
+        <div className="">
           
           {/* Header */}
-          <div className="text-center mb-8">
+          <div className="text-center mb-8 mt-8">
             <div className="inline-flex items-center px-3 py-1 bg-white/10 backdrop-blur border border-white/20 rounded-full text-white text-sm font-medium mb-4">
               <span className="mr-2">🚀</span>
               PRÓXIMOS PASSOS
@@ -130,7 +130,7 @@ const NextSteps: React.FC = () => {
             <div className="grid grid-cols-2 gap-6 items-center">
               
               {/* Left: Call to Action */}
-              <div>
+              {/* <div>
                 <h4 className="text-xl font-bold mb-3 text-white flex items-center">
                   <span className="mr-2">⚡</span>
                   Pronto para Revolucionar?
@@ -145,10 +145,10 @@ const NextSteps: React.FC = () => {
                 >
                   Agendar Reunião
                 </a>
-              </div>
+              </div> */}
               
               {/* Right: Contact Card */}
-              <div className="bg-white/5 rounded-xl p-4 border border-white/10">
+              {/* <div className="bg-white/5 rounded-xl p-4 border border-white/10">
                 <div className="flex items-center mb-4">
                   <div className="w-10 h-10 rounded-full bg-blue-500/20 flex items-center justify-center mr-3">
                     <span className="text-blue-400 text-lg">🔧</span>
@@ -175,17 +175,17 @@ const NextSteps: React.FC = () => {
                     +55 (62) 99320-1557
                   </a>
                 </div>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>
         
         {/* Footer */}
-        <div className="mt-6 text-center">
+        {/* <div className="mt-6 text-center">
           <p className="text-white/50 text-xs">
             Desenvolvido com ❤️ pela LoopHID | Soluções em Automação
           </p>
-        </div>
+        </div> */}
       </div>
 
       {/* <style jsx>{`

@@ -39,7 +39,7 @@ const NextSteps: React.FC = () => {
   return (
     <section className="py-16 px-4">
       <div className="max-w-6xl mx-auto">
-        <div className="bg-primary-dark/60 backdrop-blur-md border border-white/10 rounded-2xl p-8 md:p-12">
+        <div className="">
           <div className="text-center mb-10">
             <h3 className="text-2xl md:text-3xl font-bold mb-4 flex items-center justify-center">
               <span className="mr-3">🚀</span> Próximos Passos
@@ -63,13 +63,13 @@ const NextSteps: React.FC = () => {
           
           {/* CTA Button */}
           <div className="text-center">
-            <a 
+            {/* <a 
               href="https://wa.me/5562993201557?text=Olá! Vi a proposta para automação e tenho interesse em prosseguir." 
               className="inline-block bg-secondary hover:bg-secondary/90 text-white font-bold py-4 px-8 rounded-lg 
                         text-lg md:text-xl transition-all transform hover:scale-105 shadow-lg"
             >
               📱 QUERO AUTOMATIZAR AGORA!
-            </a>
+            </a> */}
           </div>
           
           {/* Conclusion */}
@@ -89,13 +89,13 @@ const NextSteps: React.FC = () => {
                 <p className="text-white/80 mb-6">
                   A LoopHID está aqui para implementar soluções tecnológicas que fazem a diferença real no seu dia a dia.
                 </p>
-                <a 
+                {/* <a 
                   href="https://wa.me/5562993201557?text=Olá! Vi a proposta para automação e tenho interesse em prosseguir." 
                   className="inline-block bg-white hover:bg-white/90 text-primary font-bold py-3 px-6 rounded-lg 
                             transition-all transform hover:scale-105 shadow-md"
                 >
                   Agendar uma reunião
-                </a>
+                </a> */}
               </div>
               
               <div className="bg-white/5 rounded-xl p-6 border border-white/10">

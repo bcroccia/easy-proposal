@@ -70,11 +70,11 @@ const VideoDemo: React.FC = () => {
   ];
 
   return (
-    <div className="bg-gradient-to-br from-slate-900 via-indigo-900 to-slate-800 py-12 px-4">
+    <div className="">
       <div className="max-w-6xl mx-auto">
         
         {/* Header */}
-        <div className="text-center mb-10">
+        <div className="text-center mb-10 mt-10">
           <div className="inline-flex items-center px-3 py-1 bg-white/10 backdrop-blur border border-white/20 rounded-full text-white text-xs font-medium mb-4">
             <span className="mr-1">💻</span>
             MICRO SAAS EM AÇÃO
@@ -107,12 +107,6 @@ const VideoDemo: React.FC = () => {
                           <path d="M8 5v14l11-7z" />
                         </svg>
                       </button>
-                    </div>
-                    <div className="absolute inset-0 bg-gradient-to-br from-blue-600 via-indigo-600 to-purple-700 flex items-center justify-center">
-                      <div className="text-center text-white">
-                        <h3 className="text-xl font-bold mb-2">Demo do SaaS</h3>
-                        <p className="text-sm opacity-80">Veja a plataforma em ação</p>
-                      </div>
                     </div>
                   </>
                 ) : (
@@ -180,7 +174,7 @@ const VideoDemo: React.FC = () => {
               </div>
             </div>
 
-            <div>
+            {/* <div>
               <h3 className="text-xl font-bold text-white mb-4">✨ Diferenciais</h3>
               <div className="grid grid-cols-2 gap-3">
                 {benefits.map((benefit, index) => (
@@ -191,10 +185,10 @@ const VideoDemo: React.FC = () => {
                   </div>
                 ))}
               </div>
-            </div>
+            </div> */}
 
             {/* Results */}
-            <div className="bg-gradient-to-r from-slate-700/60 to-indigo-700/60 backdrop-blur border border-white/10 rounded-xl p-6">
+            {/* <div className="bg-gradient-to-r from-slate-700/60 to-indigo-700/60 backdrop-blur border border-white/10 rounded-xl p-6">
               <h4 className="text-lg font-bold text-white mb-4 text-center">📊 Com o Micro SaaS</h4>
               <div className="grid grid-cols-2 gap-4 mb-4">
                 <div className="text-center">
@@ -209,7 +203,7 @@ const VideoDemo: React.FC = () => {
               <button className="w-full px-4 py-3 bg-gradient-to-r from-blue-600 to-indigo-700 hover:from-blue-700 hover:to-indigo-800 text-white font-semibold rounded-lg transition-all transform hover:scale-105">
                 💻 Ver Demo Completo
               </button>
-            </div>
+            </div> */}
           </div>
 
         </div>
