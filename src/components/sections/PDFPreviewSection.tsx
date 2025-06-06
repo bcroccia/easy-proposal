@@ -317,7 +317,7 @@ const PDFPreviewSection: React.FC = () => {
     { icon: '👩‍💼', title: 'Vendedora cria proposta', desc: 'Via WhatsApp ou sistema' },
     { icon: '🤖', title: 'Sistema gera PDF', desc: 'Automático com sua marca' },
     { icon: '📱', title: 'Enviado para revendedora', desc: 'WhatsApp + catálogo' },
-    { icon: '✏️', title: 'Revendedora atualiza', desc: 'Quantidades e produtos' },
+    { icon: '✏️', title: 'Permite atualização', desc: 'Quantidades e produtos' },
     { icon: '🔄', title: 'Retorna atualizado', desc: 'Nova proposta gerada' }
   ];
 
@@ -358,62 +358,7 @@ const PDFPreviewSection: React.FC = () => {
           
           {/* Left: PDF Preview */}
           <div>
-            <h3 className="text-xl font-bold text-white mb-4 flex items-center">
-              <span className="mr-2">📋</span>
-              Visualização dos PDFs
-            </h3>
-
-            {/* PDF Tabs */}
-            <div className="flex gap-2 mb-4">
-              {pdfPages.map((page, index) => (
-                <button
-                  key={index}
-                  onClick={() => setActiveTab(index)}
-                  className={`px-3 py-2 rounded-lg text-sm font-medium transition-all ${
-                    activeTab === index
-                      ? 'bg-secondary text-white'
-                      : 'bg-primary-dark/50 text-white/80 hover:bg-primary-dark/70'
-                  }`}
-                >
-                  {page.title}
-                </button>
-              ))}
-            </div>
-
-            {/* PDF Preview */}
-            <div className="relative">
-              <div className="bg-primary-dark/30 backdrop-blur border border-white/20 rounded-xl p-4 shadow-xl">
-                {/* PDF Header */}
-                <div className="flex items-center justify-between mb-3 pb-2 border-b border-white/20">
-                  <div className="flex items-center">
-                    <div className="w-8 h-8 bg-red-600 rounded flex items-center justify-center mr-2">
-                      <span className="text-white text-xs font-bold">PDF</span>
-                    </div>
-                    <span className="text-white text-sm">Proposta_Ana_Silva.pdf</span>
-                  </div>
-                  <div className="text-white/60 text-sm">
-                    {activeTab + 1}/{pdfPages.length}
-                  </div>
-                </div>
-
-                {/* PDF Content */}
-                <div className="h-[600px]">
-                  {pdfPages[activeTab].content}
-                </div>
-              </div>
-
-              {/* Quality Badge */}
-              <div className="absolute -top-2 -right-2 bg-secondary text-white px-3 py-1 rounded-full text-xs font-bold">
-                Qualidade HD
-              </div>
-            </div>
-          </div>
-
-          {/* Right: Process & Features */}
-          <div className="space-y-6">
-            
-            {/* Animated Process */}
-            <div className="bg-primary-dark/30 backdrop-blur border border-white/10 rounded-xl p-6">
+          <div className="bg-primary-dark/30 backdrop-blur border border-white/10 rounded-xl p-6">
               <h3 className="text-xl font-bold text-white mb-4 flex items-center">
                 <span className="mr-2">🔄</span>
                 Como Funciona o Processo
@@ -442,9 +387,8 @@ const PDFPreviewSection: React.FC = () => {
                 ))}
               </div>
             </div>
-
             {/* Stats */}
-            <div className="grid grid-cols-3 gap-4">
+            <div className="grid grid-cols-3 gap-4 mt-8">
               <div className="bg-primary-dark/30 rounded-lg p-4 text-center border border-white/10">
                 <div className="text-2xl font-bold text-secondary">8s</div>
                 <div className="text-xs text-white/70">Geração do PDF</div>
@@ -458,6 +402,14 @@ const PDFPreviewSection: React.FC = () => {
                 <div className="text-xs text-white/70">Comunicação</div>
               </div>
             </div>
+          </div>
+
+          {/* Right: Process & Features */}
+          <div className="space-y-6">
+            
+            {/* Animated Process */}
+
+
 
             {/* Features Grid */}
             <div className="bg-gradient-to-r from-secondary/20 to-primary/20 backdrop-blur border border-secondary/30 rounded-xl p-6">
@@ -473,7 +425,7 @@ const PDFPreviewSection: React.FC = () => {
                   { icon: '💳', label: 'Formas pagamento', desc: 'PIX, cartão, boleto' },
                   { icon: '📱', label: 'WhatsApp integrado', desc: 'Envio automático' },
                   { icon: '✏️', label: 'Edição colaborativa', desc: 'Revendedora atualiza' },
-                  { icon: '📈', label: 'Relatórios vendas', desc: 'Controle total' }
+                  { icon: '📈', label: 'Relatórios vendas (Saas)', desc: 'Controle total' }
                 ].map((item, index) => (
                   <div key={index} className="bg-white/10 rounded-lg p-3 hover:bg-white/15 transition-all">
                     <div className="text-lg mb-1">{item.icon}</div>
@@ -492,7 +444,7 @@ const PDFPreviewSection: React.FC = () => {
                 <div className="text-center">
                   <div className="text-red-400 mb-2">❌ ANTES</div>
                   <div className="space-y-2 text-xs text-white/70">
-                    <p>• Planilhas manuais</p>
+                    <p>• Planilhas criadas em ferramentas como Canva</p>
                     <p>• Design amador</p>
                     <p>• Erros de cálculo</p>
                     <p>• Retrabalho constante</p>

@@ -110,8 +110,8 @@ const presetPlans: PresetPlan[] = [
     name: 'Médio',
     subtitle: 'Solução intermediária',
     icon: '🚀',
-    totalPrice: 8900,
-    maintenancePrice: 1200,
+    totalPrice: 12000,
+    maintenancePrice: 1000,
     tools: ['whatsapp', 'google_sheets', 'pdf', 'crm', 'analytics', 'email', 'notifications'],
     highlights: [
       'Tudo do Básico +',

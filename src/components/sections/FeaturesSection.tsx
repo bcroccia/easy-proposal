@@ -76,7 +76,7 @@ const FeaturesSection: React.FC = () => {
   const features = [
     {
       title: 'Automação WhatsApp',
-      description: 'Receba dados via WhatsApp e gere propostas automaticamente em 30 segundos.',
+      description: 'Receba o PDF via WhatsApp e gere propostas automaticamente em 30 segundos.',
       icon: '📱',
       gradient: 'bg-gradient-to-br from-green-600 to-emerald-700',
       benefits: [
@@ -98,7 +98,7 @@ const FeaturesSection: React.FC = () => {
     },
     {
       title: 'PDF Personalizado',
-      description: 'Gere PDFs profissionais com sua identidade visual e dados atualizados automaticamente.',
+      description: 'Gere PDFs profissionais com sua identidade visual e PDFs atualizados automaticamente.',
       icon: '📄',
       gradient: 'bg-gradient-to-br from-purple-600 to-pink-700',
       benefits: [

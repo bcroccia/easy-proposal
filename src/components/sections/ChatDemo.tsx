@@ -84,7 +84,6 @@ const ChatDemo: React.FC = () => {
       const newMessage = { text: autoInputValue, isUser: true, timestamp: new Date() };
       setAutoMessages(prev => [...prev, newMessage]);
       setAutoInputValue('');
-      getAutoResponse(autoInputValue);
     }
   };
 
@@ -93,6 +92,174 @@ const ChatDemo: React.FC = () => {
       handleAutoSendMessage();
     }
   };
+  // Componente PDF Preview Melhorado
+  const [activeTab, setActiveTab] = useState(0);
+  const [currentStep, setCurrentStep] = useState(0);
+  
+    const pdfPages = [
+      {
+        title: "Capa da Proposta",
+        content: (
+          <div className="bg-gradient-to-br from-white to-gray-100 p-4 rounded-lg text-gray-800 h-full flex flex-col justify-between border shadow-inner">
+            {/* Header com logo */}
+            <div className="text-center border-b pb-3 mb-3">
+              <div className="w-12 h-12 bg-gradient-to-r from-primary to-secondary rounded-full mx-auto mb-2 flex items-center justify-center">
+                <span className="text-white font-bold text-lg">L</span>
+              </div>
+              <h1 className="text-lg font-bold text-primary">SUA EMPRESA</h1>
+              <p className="text-xs text-gray-600">Joias & Acessórios</p>
+            </div>
+  
+            {/* Conteúdo principal */}
+            <div className="flex-1">
+              <h2 className="text-xl font-bold mb-4 text-center text-primary">PROPOSTA COMERCIAL</h2>
+              <div className="bg-primary/10 rounded-lg p-3 mb-4">
+                <div className="grid grid-cols-2 gap-2 text-sm">
+                  <div>
+                    <p className="font-semibold">Para:</p>
+                    <p className="text-primary">Ana Silva</p>
+                  </div>
+                  <div>
+                    <p className="font-semibold">Data:</p>
+                    <p>{new Date().toLocaleDateString()}</p>
+                  </div>
+                </div>
+              </div>
+  
+              <div className="bg-secondary/10 rounded-lg p-3">
+                <h3 className="font-bold text-secondary mb-2">GOLD FACE EARRING</h3>
+                <div className="text-sm space-y-1">
+                  <div className="flex justify-between">
+                    <span>Quantidade:</span>
+                    <span className="font-semibold">5 unidades</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span>Preço unitário:</span>
+                    <span className="font-semibold">R$ 153,23</span>
+                  </div>
+                  <div className="flex justify-between border-t pt-1">
+                    <span className="font-bold">Valor total:</span>
+                    <span className="font-bold text-secondary">R$ 766,15</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+  
+            {/* Footer */}
+            <div className="text-center text-xs text-gray-500 border-t pt-2">
+              <p>Proposta válida por 30 dias</p>
+            </div>
+          </div>
+        )
+      },
+      {
+        title: "Formas de Pagamento",
+        content: (
+          <div className="bg-gradient-to-br from-white to-gray-100 p-4 rounded-lg text-gray-800 h-full flex flex-col border shadow-inner">
+            {/* Header */}
+            <div className="text-center mb-4">
+              <h2 className="text-lg font-bold text-primary mb-2">RESUMO FINANCEIRO</h2>
+              <div className="text-2xl font-bold text-secondary">R$ 766,15</div>
+              <p className="text-sm text-gray-600">Valor total da proposta</p>
+            </div>
+  
+            {/* Formas de pagamento */}
+            <div className="space-y-3 flex-1">
+              <div className="bg-green-50 border border-green-200 rounded-lg p-3">
+                <div className="flex items-center mb-2">
+                  <span className="text-green-600 mr-2">💳</span>
+                  <h3 className="font-bold text-green-700">PIX À Vista</h3>
+                </div>
+                <div className="text-sm">
+                  <p className="font-semibold text-green-800">R$ 727,84</p>
+                  <p className="text-green-600">5% de desconto</p>
+                </div>
+              </div>
+  
+              <div className="bg-blue-50 border border-blue-200 rounded-lg p-3">
+                <div className="flex items-center mb-2">
+                  <span className="text-blue-600 mr-2">💎</span>
+                  <h3 className="font-bold text-blue-700">Cartão de Crédito</h3>
+                </div>
+                <div className="text-sm space-y-1">
+                  <p>À vista: <span className="font-semibold">R$ 766,15</span></p>
+                  <p>2x: <span className="font-semibold">R$ 383,08</span></p>
+                  <p>3x: <span className="font-semibold">R$ 255,38</span></p>
+                </div>
+              </div>
+  
+              <div className="bg-orange-50 border border-orange-200 rounded-lg p-3">
+                <div className="flex items-center mb-2">
+                  <span className="text-orange-600 mr-2">📄</span>
+                  <h3 className="font-bold text-orange-700">Boleto Bancário</h3>
+                </div>
+                <div className="text-sm">
+                  <p className="font-semibold">R$ 766,15</p>
+                  <p className="text-orange-600">Vencimento: 5 dias úteis</p>
+                </div>
+              </div>
+            </div>
+  
+            {/* Contact */}
+            <div className="bg-primary/10 rounded-lg p-3 mt-4">
+              <p className="text-xs text-center">
+                <span className="font-semibold">Contato:</span> (11) 99999-9999 | vendas@empresa.com
+              </p>
+            </div>
+          </div>
+        )
+      },
+      {
+        title: "Catálogo de Produtos",
+        content: (
+          <div className="bg-gradient-to-br from-white to-gray-100 p-10 rounded-lg text-gray-800 h-full border shadow-inner">
+            <h2 className="text-lg font-bold text-primary mb-3 text-center">CATÁLOGO - COLEÇÃO VERÃO</h2>
+            
+            <div className="grid grid-cols-2 gap-3 h-full">
+              {/* Produto 1 */}
+              <div className="bg-white rounded-lg p-2 border shadow-sm">
+                <div className="w-full h-20 bg-gradient-to-br from-yellow-200 to-yellow-400 rounded mb-2 flex items-center justify-center">
+                  <span className="text-yellow-700 text-lg">💍</span>
+                </div>
+                <h4 className="font-bold text-xs text-primary">Gold Face Earring</h4>
+                <p className="text-xs text-secondary font-semibold">R$ 153,23</p>
+                <p className="text-xs text-gray-600">Ref: GFE001</p>
+              </div>
+  
+              {/* Produto 2 */}
+              <div className="bg-white rounded-lg p-2 border shadow-sm">
+                <div className="w-full h-20 bg-gradient-to-br from-pink-200 to-pink-400 rounded mb-2 flex items-center justify-center">
+                  <span className="text-pink-700 text-lg">💎</span>
+                </div>
+                <h4 className="font-bold text-xs text-primary">Silver Necklace</h4>
+                <p className="text-xs text-secondary font-semibold">R$ 234,50</p>
+                <p className="text-xs text-gray-600">Ref: SN002</p>
+              </div>
+  
+              {/* Produto 3 */}
+              <div className="bg-white rounded-lg p-2 border shadow-sm">
+                <div className="w-full h-20 bg-gradient-to-br from-blue-200 to-blue-400 rounded mb-2 flex items-center justify-center">
+                  <span className="text-blue-700 text-lg">💍</span>
+                </div>
+                <h4 className="font-bold text-xs text-primary">Diamond Ring</h4>
+                <p className="text-xs text-secondary font-semibold">R$ 456,90</p>
+                <p className="text-xs text-gray-600">Ref: DR003</p>
+              </div>
+  
+              {/* Produto 4 */}
+              <div className="bg-white rounded-lg p-2 border shadow-sm">
+                <div className="w-full h-20 bg-gradient-to-br from-green-200 to-green-400 rounded mb-2 flex items-center justify-center">
+                  <span className="text-green-700 text-lg">✨</span>
+                </div>
+                <h4 className="font-bold text-xs text-primary">Emerald Bracelet</h4>
+                <p className="text-xs text-secondary font-semibold">R$ 189,75</p>
+                <p className="text-xs text-gray-600">Ref: EB004</p>
+              </div>
+            </div>
+          </div>
+        )
+      }
+    ];
   
   // Simulação da geração automática de proposta
   const getAutoResponse = (userMessage: string) => {
@@ -242,6 +409,12 @@ const ChatDemo: React.FC = () => {
       </div>
     );
   };
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setActiveTab((prev) => (prev + 1) % pdfPages.length);
+    }, 2000);
+    return () => clearInterval(interval);
+  }, [pdfPages.length]);
 
   return (
     <div className="">
@@ -260,89 +433,7 @@ const ChatDemo: React.FC = () => {
         </div>
         
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start mb-16">
-          <div>
-            <h3 className="text-2xl font-bold mb-4 text-white">💼 Chat Consultivo</h3>
-            <p className="text-white/70 mb-6">
-              Assistente guiado que ajuda você a criar propostas através de perguntas inteligentes
-            </p>
-            
-            {/* Chat Widget 1 */}
-            <div className="bg-slate-800/50 backdrop-blur-sm rounded-2xl overflow-hidden border border-white/10 shadow-xl">
-              {/* Chat Header */}
-              <div className="bg-slate-700/50 p-4 border-b border-white/10">
-                <div className="flex items-center">
-                  <div className="w-10 h-10 rounded-full bg-blue-500/30 flex items-center justify-center text-white mr-3">
-                    💼
-                  </div>
-                  <div>
-                    <h4 className="text-white font-medium">Assistente Consultivo</h4>
-                    <p className="text-white/50 text-sm">Te ajuda passo a passo</p>
-                  </div>
-                </div>
-              </div>
-              
-              {/* Chat Body */}
-              <div className="h-80 p-4 overflow-y-auto bg-gradient-to-b from-slate-800/30 to-slate-700/30">
-                {messages.map((message, index) => (
-                  <div 
-                    key={index} 
-                    className={`mb-4 flex ${message.isUser ? 'justify-end' : 'justify-start'}`}
-                  >
-                    <div 
-                      className={`rounded-2xl py-3 px-4 max-w-[85%] break-words ${
-                        message.isUser 
-                          ? 'bg-blue-600 text-white rounded-tr-none' 
-                          : 'bg-white/10 text-white rounded-tl-none'
-                      }`}
-                    >
-                      <p className="whitespace-pre-line">{message.text}</p>
-                      <p className={`text-xs mt-1 ${message.isUser ? 'text-white/70' : 'text-white/50'}`}>
-                        {formatTime(message.timestamp)}
-                      </p>
-                    </div>
-                  </div>
-                ))}
-                
-                {/* Typing indicator */}
-                {isTyping && (
-                  <div className="flex mb-4">
-                    <div className="bg-white/10 rounded-2xl py-3 px-4 rounded-tl-none">
-                      <div className="flex space-x-1">
-                        <div className="w-2 h-2 rounded-full bg-white/60 animate-ping"></div>
-                        <div className="w-2 h-2 rounded-full bg-white/60 animate-ping" style={{animationDelay: '0.1s'}}></div>
-                        <div className="w-2 h-2 rounded-full bg-white/60 animate-ping" style={{animationDelay: '0.2s'}}></div>
-                      </div>
-                    </div>
-                  </div>
-                )}
-                
-                <div ref={messagesEndRef} />
-              </div>
-              
-              {/* Chat Input */}
-              <div className="p-3 bg-slate-700/50 border-t border-white/10">
-                <div className="flex rounded-lg bg-white/10 overflow-hidden">
-                  <input
-                    type="text"
-                    value={inputValue}
-                    onChange={(e) => setInputValue(e.target.value)}
-                    onKeyPress={handleKeyPress}
-                    className="flex-grow px-4 py-2 bg-transparent text-white focus:outline-none placeholder-white/50"
-                    placeholder="Descreva seu projeto..."
-                  />
-                  <button 
-                    onClick={handleSendMessage}
-                    className="px-4 bg-blue-600 text-white hover:bg-blue-700 transition-colors"
-                    disabled={inputValue.trim() === ''}
-                  >
-                    <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd" />
-                    </svg>
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
+
           
           <div>
             <h3 className="text-2xl font-bold mb-4 text-white">⚡ Chat Automático</h3>
@@ -440,6 +531,60 @@ const ChatDemo: React.FC = () => {
               </div>
             </div>
           </div>
+
+          <div>
+                <div>
+            <h3 className="text-xl font-bold text-white mb-4 flex items-center">
+              <span className="mr-2">📋</span>
+            PDFs
+            </h3>
+
+            {/* PDF Tabs */}
+            <div className="flex gap-2 mb-4">
+              {pdfPages.map((page, index) => (
+                <button
+                  key={index}
+                  onClick={() => setActiveTab(index)}
+                  className={`px-3 py-2 rounded-lg text-sm font-medium transition-all ${
+                    activeTab === index
+                      ? 'bg-secondary text-white'
+                      : 'bg-primary-dark/50 text-white/80 hover:bg-primary-dark/70'
+                  }`}
+                >
+                  {page.title}
+                </button>
+              ))}
+            </div>
+
+            {/* PDF Preview */}
+            <div className="relative">
+              <div className="bg-primary-dark/30 backdrop-blur border border-white/20 rounded-xl p-4 shadow-xl">
+                {/* PDF Header */}
+                <div className="flex items-center justify-between mb-3 pb-2 border-b border-white/20">
+                  <div className="flex items-center">
+                    <div className="w-8 h-8 bg-red-600 rounded flex items-center justify-center mr-2">
+                      <span className="text-white text-xs font-bold">PDF</span>
+                    </div>
+                    <span className="text-white text-sm">Proposta_Ana_Silva.pdf</span>
+                  </div>
+                  <div className="text-white/60 text-sm">
+                    {activeTab + 1}/{pdfPages.length}
+                  </div>
+                </div>
+
+                {/* PDF Content */}
+                <div className="h-[600px]">
+                  {pdfPages[activeTab].content}
+                </div>
+              </div>
+
+              {/* Quality Badge */}
+              <div className="absolute -top-2 -right-2 bg-secondary text-white px-3 py-1 rounded-full text-xs font-bold">
+                Qualidade HD
+              </div>
+            </div>
+          </div>
+          </div>
         </div>
 
         {/* Simulação do PDF Gerado */}
@@ -481,23 +626,6 @@ const ChatDemo: React.FC = () => {
           </div>
         )}
 
-        {/* CTA Final */}
-        {/* <div className="text-center bg-gradient-to-r from-slate-700/60 to-indigo-700/60 backdrop-blur border border-white/10 rounded-2xl p-12">
-          <h3 className="text-3xl font-bold text-white mb-4">
-            Pronto para Revolucionar suas Propostas?
-          </h3>
-          <p className="text-white/80 mb-8 max-w-2xl mx-auto">
-            Escolha entre o assistente consultivo ou a automação instantânea. Ambos geram propostas profissionais que convertem mais vendas.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="px-8 py-4 bg-gradient-to-r from-blue-600 to-indigo-700 hover:from-blue-700 hover:to-indigo-800 text-white font-semibold rounded-xl transition-all transform hover:scale-105 shadow-lg">
-              💼 Quero o Chat Consultivo
-            </button>
-            <button className="px-8 py-4 bg-gradient-to-r from-cyan-600 to-blue-600 hover:from-cyan-700 hover:to-blue-700 text-white font-semibold rounded-xl transition-all transform hover:scale-105 shadow-lg">
-              ⚡ Quero a Automação
-            </button>
-          </div>
-        </div> */}
       </div>
     </div>
   );

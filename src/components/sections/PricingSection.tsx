@@ -96,7 +96,7 @@ const PricingSection: React.FC = () => {
       title: 'Micro SaaS',
       price: 'R$ 12.000',
       maintenances: 'A partir de:',
-      maintenance: 'R$ 400/mês manutenção',
+      maintenance: 'R$ 1.000/mês manutenção',
       description: 'Plataforma completa com dashboard profissional',
       features: [
         'Dashboard profissional completo',

@@ -37,28 +37,28 @@ const CtaSection: React.FC = () => {
       icon: '🎯',
       title: '15% de Desconto',
       description: 'No valor total do projeto',
-      value: 'Economia até R$ 1.800',
+      // value: 'Economia até R$ 1.800',
       color: 'from-green-500 to-emerald-600'
     },
     {
       icon: '📱',
       title: 'Setup WhatsApp Grátis',
       description: 'Configuração completa incluída',
-      value: 'Valor: R$ 800',
+      // value: 'Valor: R$ 800',
       color: 'from-blue-500 to-cyan-600'
     },
     {
       icon: '🎨',
       title: 'Design Personalizado',
       description: 'PDF com sua identidade visual',
-      value: 'Valor: R$ 500',
+      // value: 'Valor: R$ 500',
       color: 'from-purple-500 to-pink-600'
     },
     {
       icon: '📞',
       title: 'Suporte Estendido',
       description: '60 dias ao invés de 30',
-      value: 'Valor: R$ 400',
+      // value: 'Valor: R$ 400',
       color: 'from-orange-500 to-red-600'
     }
   ];
@@ -171,7 +171,7 @@ const CtaSection: React.FC = () => {
                         <h5 className="font-bold text-white text-sm">{benefit.title}</h5>
                       </div>
                       <p className="text-white/90 text-xs mb-1">{benefit.description}</p>
-                      <p className="text-white/70 text-xs font-semibold">{benefit.value}</p>
+                      {/* <p className="text-white/70 text-xs font-semibold">{benefit.value}</p> */}
                     </div>
                   ))}
                 </div>

@@ -29,12 +29,8 @@ const Feature: React.FC<FeatureProps> = ({ icon, title, description, isActive, o
 
 const VideoDemo: React.FC = () => {
   const [activeFeature, setActiveFeature] = useState(0);
-
-  const [isVideoPlaying, setIsVideoPlaying] = useState(false);
-
-  const handleVideoPlay = () => {
-    setIsVideoPlaying(true);
-  };
+  
+  // Removida a lógica de clique, o vídeo agora é sempre reproduzido automaticamente como um GIF
 
   const features = [
     {
@@ -92,55 +88,25 @@ const VideoDemo: React.FC = () => {
           
           {/* Left: Video Demo */}
           <div className="space-y-6">
-              {/* Video Container */}
+              {/* Video Container - Autoplay como GIF */}
               <div className="relative overflow-hidden rounded-2xl border-2 border-white/20 shadow-2xl">
-                
-                {!isVideoPlaying ? (
-                  // Video Poster/Thumbnail
-                  <div 
-                    className="relative aspect-video bg-gradient-to-br from-slate-800 via-indigo-900 to-slate-800 cursor-pointer group"
-                    onClick={handleVideoPlay}
+                <div className="aspect-video">
+                  <video 
+                    className="w-full h-full object-cover"
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                    src="/assets/videos/proposta-facil.mp4"
                   >
-                    {/* Video controls overlay */}
-                    <div className="absolute bottom-0 left-0 right-0 bg-black/80 p-4">
-                      <div className="flex items-center justify-between text-white text-sm">
-                        <div className="flex items-center">
-                          <button className="mr-4 hover:text-blue-400 transition-colors">
-                            <span className="text-lg">▶</span>
-                          </button>
-                          <span>0:00</span>
-                        </div>
-                        <div className="flex items-center space-x-4">
-                          <button className="hover:text-blue-400 transition-colors">🔊</button>
-                          <button className="hover:text-blue-400 transition-colors">⚙️</button>
-                          <button className="hover:text-blue-400 transition-colors">⛶</button>
-                        </div>
-                      </div>
-                    </div>
-                    
-                    {/* Duration badge */}
-                    <div className="absolute bottom-16 left-4 text-white text-sm">
-                      1:45
-                    </div>
-
-                    {/* Quality badge */}
-                    <div className="absolute top-4 left-4 text-white/60 text-sm">
-                      1.00
-                    </div>
+                    Seu navegador não suporta vídeos HTML5.
+                  </video>
+                  
+                  {/* Quality badge */}
+                  <div className="absolute top-4 left-4 bg-black/50 px-2 py-1 rounded text-white/60 text-xs">
+                    AUTO-PLAY
                   </div>
-                ) : (
-                  // Actual Video Player
-                  <div className="aspect-video">
-                    <video 
-                      className="w-full h-full object-cover"
-                      controls
-                      autoPlay
-                      src="/assets/videos/proposta-facil.mp4"
-                    >
-                      Seu navegador não suporta vídeos HTML5.
-                    </video>
-                  </div>
-                )}
+                </div>
               </div>
 
             {/* Feature Details */}
