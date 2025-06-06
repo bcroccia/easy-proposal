@@ -90,6 +90,7 @@ const PricingSection: React.FC = () => {
         'Implementação em 30 dias',
         'Suporte técnico incluído'
       ],
+      href: 'https://wa.me/5562993201557?text=Olá! Vi a proposta para PDFs Automáticos e tenho interesse em prosseguir.',
       ctaText: 'Contratar Automação'
     },
     {
@@ -106,6 +107,7 @@ const PricingSection: React.FC = () => {
         'Suporte prioritário incluído'
       ],
       isFeatured: true,
+      href: 'https://wa.me/5562993201557?text=Olá! Vi a proposta para PDFs Automáticos e tenho interesse em prosseguir.',
       ctaText: 'Contratar Micro SaaS'
     }
   ];
@@ -158,10 +160,10 @@ const PricingSection: React.FC = () => {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <button className="px-6 py-3 bg-white/10 hover:bg-white/20 text-white rounded-lg transition-all border border-white/20">
-                💬 Falar com Especialista
+                <a href="https://wa.me/5562993201557?text=Olá! Vi a proposta para PDFs Automáticos e tenho interesse em prosseguir.">💬 Falar com Especialista</a>
               </button>
               <button className="px-6 py-3 bg-gradient-to-r from-blue-600 to-indigo-700 hover:from-blue-700 hover:to-indigo-800 text-white rounded-lg transition-all">
-                📅 Agendar Demonstração
+                <a href="https://wa.me/5562993201557?text=Olá! Vi a proposta para PDFs Automáticos e tenho interesse em prosseguir.">📅 Agendar Demonstração</a>
               </button>
             </div>
           </div>

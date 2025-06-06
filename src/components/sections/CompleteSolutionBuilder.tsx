@@ -375,10 +375,10 @@ const CompleteSolutionBuilder: React.FC = () => {
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
               <button className="px-8 py-4 bg-gradient-to-r from-yellow-500 to-orange-500 hover:from-yellow-600 hover:to-orange-600 text-black font-bold rounded-xl transition-all duration-300 transform hover:scale-105 shadow-lg">
-                👑 Agendar Consultoria Gratuita
+                <a href="https://wa.me/5562993201557?text=Olá! Vi a proposta para PDFs Automáticos e tenho interesse em prosseguir." className="text-black">👑 Agendar Consultoria Gratuita</a>
               </button>
               <button className="px-8 py-4 bg-primary-dark/50 hover:bg-primary-dark/70 border border-yellow-400/50 text-white font-semibold rounded-xl transition-all duration-300 transform hover:scale-105">
-                💬 Conversar no WhatsApp
+                <a href="https://wa.me/5562993201557?text=Olá! Vi a proposta para PDFs Automáticos e tenho interesse em prosseguir." className="text-white">💬 Conversar no WhatsApp</a>
               </button>
             </div>
 

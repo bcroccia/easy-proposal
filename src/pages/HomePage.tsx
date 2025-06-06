@@ -56,10 +56,10 @@ const HomePage: React.FC = () => {
               <p className="text-white font-medium">Pronto para começar?</p>
             </div>
             <a 
-              href="#investimento" 
+              href="#solucoes-automacao" 
               className="px-4 py-2 bg-white text-secondary rounded-lg font-medium text-sm whitespace-nowrap"
             >
-              Ver Planos
+              Soluções de Automação
             </a>
           </div>
         </div>

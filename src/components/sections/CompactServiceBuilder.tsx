@@ -218,7 +218,7 @@ const CompleteSolutionBuilder: React.FC = () => {
       .filter((tool): tool is Tool => tool !== undefined);
 
   return (
-    <div className="max-w-7xl mx-auto p-4">
+    <div id="solucoes-automacao" className="max-w-7xl mx-auto p-4">
       {/* Header */}
       <div className="text-center mb-6 mt-12">
         <h2 className="text-2xl md:text-3xl font-bold mb-2 bg-gradient-to-r from-blue-300 to-cyan-400 bg-clip-text text-transparent">
@@ -338,7 +338,7 @@ const CompleteSolutionBuilder: React.FC = () => {
           {/* CTA para planos fixos */}
           <div className="mt-6 text-center">
             <button className="bg-gradient-to-r from-cyan-600 to-blue-600 hover:from-cyan-700 hover:to-blue-700 text-white font-bold py-3 px-8 rounded-xl transition-all duration-300 transform hover:scale-105 shadow-lg">
-              🚀 Escolher Plano {currentPreset.name} - R$ {(currentPreset.totalPrice / 1000).toFixed(1)}k
+              <a href="https://wa.me/5562993201557?text=Olá! Vi a proposta para PDFs Automáticos e tenho interesse em prosseguir." className="text-white">🚀 Escolher Plano {currentPreset.name} - R$ {(currentPreset.totalPrice / 1000).toFixed(1)}k</a>
             </button>
             <p className="text-white/70 text-xs mt-2">
             Valores adicionais de manutenção podem ser variáveis de acordo com a usabilidade do cliente

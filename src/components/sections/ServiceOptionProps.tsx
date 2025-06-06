@@ -187,7 +187,7 @@ const ComparisonCard: React.FC = () => {
         </div>
 
         <button className="w-full bg-white/20 hover:bg-white/30 backdrop-blur border border-white/30 text-white font-semibold py-3 px-6 rounded-xl transition-all duration-300 hover:scale-105">
-          Falar com Especialista 💬
+          <a href="https://wa.me/5562993201557?text=Olá! Vi a proposta para PDFs Automáticos e tenho interesse em prosseguir."> Falar com Especialista 💬</a>
         </button>
       </div>
     </div>

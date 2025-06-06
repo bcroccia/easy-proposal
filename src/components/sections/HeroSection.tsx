@@ -37,16 +37,17 @@ const HeroSection: React.FC = () => {
             
             {/* Botões CTA - ESPAÇADOS */}
             <div className="flex flex-wrap gap-4 mb-8">
-              <button 
+              <a 
+                href="#solucoes-automacao"
                 className="px-8 py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg transition-all duration-300 flex items-center justify-center"
               >
                 <span className="mr-2">📋</span>
-                Ver Planos
-              </button>
+                Soluções de Automação
+              </a>
               
-              <button className="px-8 py-3 bg-transparent border border-white/30 hover:bg-white/10 text-white font-medium rounded-lg transition-all duration-300">
+              {/* <button className="px-8 py-3 bg-transparent border border-white/30 hover:bg-white/10 text-white font-medium rounded-lg transition-all duration-300">
                 Preços e Planos
-              </button>
+              </button> */}
             </div>
             
             {/* Caixa de Resultados */}

@@ -120,10 +120,10 @@ const CtaSection: React.FC = () => {
                 
                 <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-8">
                   <button className="px-8 py-4 bg-gradient-to-r from-blue-600 to-indigo-700 hover:from-blue-700 hover:to-indigo-800 text-white font-semibold rounded-xl transition-all duration-300 transform hover:scale-105 shadow-lg">
-                    🎯 Garantir Desconto
+                    <a href="https://wa.me/5562993201557?text=Olá! Vi a proposta para PDFs Automáticos e tenho interesse em prosseguir.">🎯 Garantir Desconto</a>
                   </button>
                   <button className="px-8 py-4 bg-white/10 backdrop-blur-sm hover:bg-white/20 text-white font-semibold border border-white/30 rounded-xl transition-all duration-300 transform hover:scale-105">
-                    💬 Falar com Especialista
+                    <a href="https://wa.me/5562993201557?text=Olá! Vi a proposta para PDFs Automáticos e tenho interesse em prosseguir.">💬 Falar com Especialista</a>
                   </button>
                 </div>
                 
@@ -215,10 +215,10 @@ const CtaSection: React.FC = () => {
             <div className="mt-12 text-center">
               <div className="inline-flex flex-col sm:flex-row gap-4">
                 <button className="px-10 py-4 bg-gradient-to-r from-green-600 to-emerald-700 hover:from-green-700 hover:to-emerald-800 text-white font-bold rounded-xl transition-all duration-300 transform hover:scale-105 shadow-xl text-lg">
-                  🚀 Aproveitar Oferta Agora
+                   <a href="https://wa.me/5562993201557?text=Olá! Vi a proposta para PDFs Automáticos e tenho interesse em prosseguir.">🚀 Aproveitar Oferta Agora</a>
                 </button>
                 <button className="px-10 py-4 bg-gradient-to-r from-blue-600 to-indigo-700 hover:from-blue-700 hover:to-indigo-800 text-white font-bold rounded-xl transition-all duration-300 transform hover:scale-105 shadow-xl text-lg">
-                  📞 Falar no WhatsApp
+                  <a href="https://wa.me/5562993201557?text=Olá! Vi a proposta para PDFs Automáticos e tenho interesse em prosseguir.">📞 Falar no WhatsApp</a>
                 </button>
               </div>
               <p className="text-white/50 text-sm mt-4">

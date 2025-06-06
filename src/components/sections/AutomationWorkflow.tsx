@@ -156,9 +156,10 @@ const AutomationWorkflow: React.FC = () => {
             <div className="bg-gradient-to-r from-slate-700/60 to-indigo-700/60 backdrop-blur border border-white/10 rounded-xl p-6 text-center">
               <h4 className="text-lg font-bold text-white mb-2">Pronto para automatizar?</h4>
               <button className="w-full px-6 py-3 bg-gradient-to-r from-blue-600 to-indigo-700 hover:from-blue-700 hover:to-indigo-800 text-white font-semibold rounded-lg transition-all transform hover:scale-105">
-                🚀 Começar Agora
+                <a href="https://wa.me/5562993201557?text=Olá! Vi a proposta para automação e tenho interesse em prosseguir." className="text-white">🚀 Começar Agora</a>
               </button>
             </div>
+            
           </div>
 
         </div>

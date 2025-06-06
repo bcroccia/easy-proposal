@@ -464,7 +464,7 @@ const PDFPreviewSection: React.FC = () => {
 
             {/* CTA */}
             <button className="w-full py-4 bg-gradient-to-r from-secondary to-primary hover:from-secondary/80 hover:to-primary/80 text-white font-bold rounded-xl transition-all transform hover:scale-105 shadow-lg">
-              🚀 Quero PDFs Automáticos
+              <a href="https://wa.me/5562993201557?text=Olá! Vi a proposta para PDFs Automáticos e tenho interesse em prosseguir." className="text-white">🚀 Quero PDFs Automáticos</a>
             </button>
           </div>
         </div>
@@ -667,7 +667,7 @@ const CompleteSolutionBuilder: React.FC = () => {
           {/* CTA para planos fixos */}
           <div className="mt-6 text-center">
             <button className="bg-gradient-to-r from-secondary to-primary hover:from-secondary/80 hover:to-primary/80 text-white font-bold py-3 px-8 rounded-xl transition-all duration-300 transform hover:scale-105 shadow-lg">
-              🚀 Escolher Plano {currentPreset.name} - R$ {(currentPreset.totalPrice / 1000).toFixed(1)}k
+              <a href="https://wa.me/5562993201557?text=Olá! Vi a proposta para PDFs Automáticos e tenho interesse em prosseguir." className="text-white">🚀 Escolher Plano {currentPreset.name} - R$ {(currentPreset.totalPrice / 1000).toFixed(1)}k</a>
             </button>
             <p className="text-white/70 text-xs mt-2">
               Valores adicionais de manutenção podem ser variáveis de acordo com a usabilidade do cliente
