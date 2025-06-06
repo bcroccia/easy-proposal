@@ -16,6 +16,53 @@ import CompleteSolutionBuilder from '../components/sections/CompleteSolutionBuil
 const HomePage: React.FC = () => {
   const [showFloatingCTA, setShowFloatingCTA] = useState(false);
   
+  
+  // Impedir rolagem automática para âncoras ao carregar a página
+  useEffect(() => {
+    // Forçar a página a iniciar no topo
+    window.scrollTo(0, 0);
+    
+    // Desabilitar restauração automática de posição do navegador
+    if ('scrollRestoration' in window.history) {
+      window.history.scrollRestoration = 'manual';
+    }
+    
+    // Remover qualquer hash da URL ao carregar a página
+    if (window.location.hash) {
+      window.history.replaceState(
+        null, 
+        document.title, 
+        window.location.pathname + window.location.search
+      );
+    }
+    
+    // Configurar rolagem suave para links de âncora
+    const handleAnchorClick = (e: MouseEvent) => {
+      const target = e.target as HTMLElement;
+      const anchor = target.closest('a[href^="#"]');
+      
+      if (anchor) {
+        const href = anchor.getAttribute('href');
+        if (href && href.startsWith('#')) {
+          e.preventDefault();
+          const element = document.querySelector(href);
+          if (element) {
+            element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            window.history.pushState(null, '', href);
+          }
+        }
+      }
+    };
+    
+    // Adicionar evento para links de âncora
+    document.addEventListener('click', handleAnchorClick);
+    
+    // Remover evento quando o componente for desmontado
+    return () => {
+      document.removeEventListener('click', handleAnchorClick);
+    };
+  }, []);
+
   // Show floating CTA after scrolling down a bit
   useEffect(() => {
     const handleScroll = () => {
@@ -35,14 +82,12 @@ const HomePage: React.FC = () => {
     <>
       <HeroSection />
       <FeaturesSection />
-      {/* <ServiceOptionProps  /> */}
       <AutomationWorkflow />
       <ChatDemo />
       <PDFPreviewSection />
       <CompactServiceBuilder />
       <VideoDemo />
       <CompleteSolutionBuilder />
-      {/* <WorkProcess /> */}
       <ImpactSection />
       <PricingSection />
       <CtaSection />
