@@ -71,7 +71,7 @@ const NextSteps: React.FC = () => {
               PRÓXIMOS PASSOS
             </div>
             <h3 className="text-2xl font-bold mb-2 text-white">
-              Sua Automatização em 5 Semanas!
+              Sua Automatização em <br /> 5 Semanas!
             </h3>
             <p className="text-white/70">
               Processo simples e direto para transformar sua operação

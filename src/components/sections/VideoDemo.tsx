@@ -75,7 +75,7 @@ const VideoDemo: React.FC = () => {
             MICRO SAAS EM AÇÃO
           </div>
           <h2 className="text-4xl font-bold mb-4 bg-gradient-to-r from-blue-300 to-cyan-400 bg-clip-text text-transparent">
-            Como Funciona Nosso Serviço de Micro SaaS
+            Como Funciona <br /> Nosso Serviço de Micro SaaS
           </h2>
           <p className="text-lg text-white/70">
             Plataforma completa com dashboard profissional e controle total

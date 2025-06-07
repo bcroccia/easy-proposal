@@ -425,7 +425,7 @@ const ChatDemo: React.FC = () => {
             ASSISTENTE INTELIGENTE
           </div>
           <h2 className="text-4xl font-bold mb-4 bg-gradient-to-r from-blue-300 to-cyan-400 bg-clip-text text-transparent">
-            Chat de Propostas Interativo
+            Chat de Propostas <br /> Interativo
           </h2>
           <p className="text-lg text-white/70 max-w-2xl mx-auto">
             Converse naturalmente e crie propostas profissionais em tempo real

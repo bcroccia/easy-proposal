@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect, CSSProperties } from 'react';
 
-// --- Dados para os Cards ---
+// --- Dados para os Cards (com novas cores e tamanhos) ---
 const cardData = [
   {
     type: 'automation',
@@ -67,7 +67,7 @@ const cardData = [
     demo: (
       <div className="bg-white/5 rounded-xl p-4 border border-white/10 h-full">
          <div className="absolute top-2 right-2 px-2 py-1 bg-blue-500/30 text-blue-300 text-xs rounded">
-            DEMONSTRAÇÃO
+           DEMONSTRAÇÃO
          </div>
         <div className="space-y-2 text-xs">
           <div className="flex items-center justify-between">
@@ -105,13 +105,13 @@ interface CardProps {
 
 const Card = ({ cardInfo, isFlipped, onClick }: CardProps) => {
   const cardRef = useRef<HTMLDivElement>(null);
-  const initialRotation = cardInfo.type === 'automation' ? 'rotate(-12deg)' : 'rotate(6deg)';
+  const initialRotation = cardInfo.type === 'automation' ? 'rotate(-6deg)' : 'rotate(6deg)';
   const [style, setStyle] = useState<CardStyle>({ transform: `perspective(1000px) ${initialRotation}` });
 
   useEffect(() => {
     if (isFlipped) {
       setStyle({
-        transform: 'perspective(1000px) scale(1.2) rotateY(180deg)',
+        transform: 'perspective(2000px) scale(1.1) rotateY(180deg)',
       });
     } else {
       setStyle({
@@ -126,8 +126,8 @@ const Card = ({ cardInfo, isFlipped, onClick }: CardProps) => {
     const { top, left, width, height } = cardRef.current.getBoundingClientRect();
     const x = clientX - left;
     const y = clientY - top;
-    const rotateX = (y / height - 0.5) * -30;
-    const rotateY = (x / width - 0.5) * 30;
+    const rotateX = (y / height - 0.5) * -25;
+    const rotateY = (x / width - 0.5) * 25;
 
     setStyle({
       transform: `perspective(1000px) ${initialRotation} rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.05, 1.05, 1.05)`,
@@ -146,42 +146,39 @@ const Card = ({ cardInfo, isFlipped, onClick }: CardProps) => {
   return (
     <div
       ref={cardRef}
-      className={`card-container relative transition-transform duration-700 ease-in-out cursor-pointer w-[350px] h-[520px] ${isFlipped ? 'z-30' : ''}`}
+      className="card-container relative transition-transform duration-700 ease-in-out cursor-pointer w-[350px] h-[520px]"
+      style={style}
       onMouseMove={onMouseMove}
       onMouseLeave={onMouseLeave}
       onClick={onClick}
-      style={style}
     >
-      {/* FACE FRONTAL */}
-      <div className="card-face card-front">
-        <div className={`card-front-content relative w-full h-full ${cardInfo.theme.bgColor} rounded-2xl p-6 flex flex-col backdrop-blur-sm ${cardInfo.theme.border} border`}>
-            {/* Badge */}
+        {/* FACE FRONTAL */}
+        <div className="card-face card-front">
+          <div className={`card-front-content relative w-full h-full ${cardInfo.theme.bgColor} rounded-2xl p-6 flex flex-col backdrop-blur-sm ${cardInfo.theme.border} border`}>
             <div className={`absolute -top-3 left-6 px-3 py-1 ${cardInfo.theme.bg} text-white text-sm font-medium rounded-full`}>
-                {cardInfo.badge}
+              {cardInfo.badge}
             </div>
-            {/* Ícone e Título */}
             <div className="flex items-center gap-4 mb-4 mt-2">
-                <div className={`w-12 h-12 ${cardInfo.theme.bg} rounded-xl flex items-center justify-center text-2xl`}>
-                    {cardInfo.icon}
-                </div>
-                <div>
-                    <h3 className="text-2xl font-bold text-white">{cardInfo.title}</h3>
-                    <p className={`${cardInfo.theme.text} text-sm`}>{cardInfo.subtitle}</p>
-                </div>
+              <div className={`w-12 h-12 ${cardInfo.theme.bg} rounded-xl flex items-center justify-center text-2xl`}>
+                {cardInfo.icon}
+              </div>
+              <div>
+                <h3 className="text-2xl font-bold text-white">{cardInfo.title}</h3>
+                <p className={`${cardInfo.theme.text} text-sm`}>{cardInfo.subtitle}</p>
+              </div>
             </div>
-            {/* Demo */}
             <div className="flex-grow my-2">
               {cardInfo.demo}
             </div>
             <p className="text-center text-white/60 text-xs mt-4">Clique para ver os benefícios</p>
+          </div>
         </div>
-      </div>
 
-      {/* FACE TRASEIRA */}
-      <div className="card-face card-back">
-       <div className={`relative w-full h-full ${cardInfo.theme.bgColor} rounded-2xl p-6 flex flex-col justify-center items-center text-center backdrop-blur-sm ${cardInfo.theme.border} border`}>
+        {/* FACE TRASEIRA */}
+        <div className="card-face card-back">
+          <div className={`relative w-full h-full ${cardInfo.theme.bgColor} rounded-2xl p-6 flex flex-col justify-center items-center text-center backdrop-blur-sm ${cardInfo.theme.border} border`}>
             <h3 className="text-3xl font-bold mb-6 text-white">Principais Benefícios</h3>
-            <ul className="space-y-0 text-white/90 text-sm mb-6 text-left self-start w-full flex-grow">
+            <ul className="space-y-3 text-white/90 text-md mb-6 text-left self-start w-full flex-grow">
               {cardInfo.benefits.map((benefit, i) => (
                 <li key={i} className="flex items-center gap-3">
                   <span className={`${cardInfo.theme.accent} text-xl`}>✓</span>
@@ -190,67 +187,44 @@ const Card = ({ cardInfo, isFlipped, onClick }: CardProps) => {
               ))}
             </ul>
             <button className={`w-full py-3 ${cardInfo.theme.button} text-white font-medium rounded-lg transition-colors`}>
-               {cardInfo.title}
+              Contratar {cardInfo.title}
             </button>
-       </div>
-      </div>
+          </div>
+        </div>
     </div>
   );
 };
 
 const HeroSection = () => {
   const [flippedCardIndex, setFlippedCardIndex] = useState<number | null>(null);
-  const [isAnimationActive, setIsAnimationActive] = useState(true);
-
-  // Efeito para a animação automática
-  useEffect(() => {
-    if (!isAnimationActive) return;
-
-    // A sequência da animação: vira card 0, desvira, vira card 1, desvira, e repete
-    const animationSequence = [0, null, 1, null];
-    let currentStep = 0;
-
-    const intervalId = setInterval(() => {
-        setFlippedCardIndex(animationSequence[currentStep]);
-        currentStep = (currentStep + 1) % animationSequence.length;
-    }, 2000); // Muda a cada 2 segundos
-
-    return () => clearInterval(intervalId); // Limpa o intervalo
-  }, [isAnimationActive]);
-
 
   const handleCardClick = (index: number) => {
-    setIsAnimationActive(false); // Para a animação automática ao clicar
     setFlippedCardIndex(flippedCardIndex === index ? null : index);
   };
     
   return (
-    <div className="justify-center">
-      {/* ESTILOS GLOBAIS */}
+    <div className="">
       <style>{`
         .card-container {
             transform-style: preserve-3d;
         }
-
         .card-face {
             position: absolute;
             width: 100%;
             height: 100%;
             backface-visibility: hidden;
-            -webkit-backface-visibility: hidden; /* Safari */
+            -webkit-backface-visibility: hidden;
+            border-radius: 1rem;
             z-index: 2;
-            border-radius: 1rem; /* 16px */
         }
         .card-back {
             transform: rotateY(180deg);
         }
-
-        /* EFEITO BORDA ANIMADA */
         .card-container::before, .card-container::after {
           content: "";
           position: absolute;
           left: -2px; right: -2px; top: -2px; bottom: -2px;
-          border-radius: 1rem; /* 16px */
+          border-radius: 1rem;
           background-image: linear-gradient(
             var(--angle, 0deg), 
             rgba(192, 132, 252, 0.8), 
@@ -259,19 +233,15 @@ const HeroSection = () => {
             rgba(59, 130, 246, 0.8)
           );
           background-size: 300% 300%;
-          animation: bg-spin linear infinite;
-          z-index: 1;
+          animation: bg-spin 5s linear infinite;
+          z-index: -1;
         }
-
         .card-container::after {
           filter: blur(20px);
         }
-        
-        /* EFEITO BRILHO SEGUINDO MOUSE */
         .card-container:hover .card-front-content::before {
           opacity: 1;
         }
-
         .card-front-content::before {
             content: '';
             position: absolute;
@@ -286,62 +256,48 @@ const HeroSection = () => {
             pointer-events: none;
             z-index: 3;
         }
-        
         @property --angle {
             syntax: '<angle>';
             initial-value: 0deg;
             inherits: false;
         }
-
         @keyframes bg-spin {
-          to {
-            --angle: 360deg;
-          }
+          to { --angle: 360deg; }
         }
       `}</style>
       
-      <div className="w-full p-4 md:p-8">
-        {/* Container principal RESPONSIVO */}
-        
-        <div className="flex flex-col lg:flex-row gap-12 md:gap-8 items-center w-full max-w-7xl mx-auto">
-          
-          {/* Conteúdo Hero */}
-          <div className="w-full lg:w-2/5 xl:w-1/3 flex-shrink-0 text-center lg:text-left">
-            <h1 className="text-4xl md:text-5xl font-bold leading-tight mb-6">
-              <span className="bg-gradient-to-r from-blue-300 to-cyan-400 bg-clip-text text-transparent">
-                Revolucione seu Processo de Propostas Comerciais
-              </span>
-            </h1>
-            <p className="text-lg md:text-xl text-white/80 mb-8 leading-relaxed">
-            Processos manuais estão atrasando as suas vendas? Automatize a criação de propostas e veja as suas conversões a aumentar. 
-            </p>
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-green-500/20 border border-green-400/30 rounded-full text-green-300 text-xs md:text-sm">
-             <span className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></span>
-             Redução de 78% no tempo + 35% mais conversões
+      {/* Container para o layout sobreposto */}
+      {/* AJUSTE: A largura do container foi reduzida para aproximar os cards */}
+      <div className="flex flex-col lg:relative lg:w-[730px] lg:h-[520px] items-center gap-16 lg:gap-0">
+        {cardData.map((card, index) => {
+          const isFlipped = flippedCardIndex === index;
+          const isAnyFlipped = flippedCardIndex !== null;
+
+          // Lógica de posicionamento para telas grandes
+          const positionClasses = `
+            lg:absolute lg:top-0 transition-all duration-700 ease-in-out
+            ${isFlipped 
+                ? 'lg:left-1/2 lg:-translate-x-1/2' // Centraliza o card virado
+                : (index === 0 ? 'lg:left-0' : 'lg:right-0') // Posição padrão
+            }
+            
+          `;
+
+          return (
+            <div
+              key={index}
+              className={positionClasses}
+              // O z-index garante que o card clicado fique na frente
+              style={{ zIndex: isFlipped ? 30 : index + 1 }}
+            >
+              <Card
+                cardInfo={card}
+                isFlipped={isFlipped}
+                onClick={() => handleCardClick(index)}
+              />
             </div>
-            <div className="mb-10 mt-6">
-                <h2 className="text-2xl font-bold text-white">Escolha Sua Solução Ideal</h2>
-            </div>
-            <div className="flex flex-wrap gap-4 justify-center lg:justify-start mt-6">
-              <a href="#solucoes" className="px-8 py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg transition-all duration-300 flex items-center justify-center">
-                <span className="mr-2">💡</span>
-                Conheça as Soluções
-              </a>
-            </div>
-          </div>
-          
-          {/* Seção dos Cards */}
-          <div className="w-full lg:w-3/5 xl:w-2/3 flex justify-center items-center flex-wrap gap-8 min-h-[550px] md:min-h-[600px] mt-10 lg:mt-0">
-             {cardData.map((card, index) => (
-                <Card
-                    key={index}
-                    cardInfo={card}
-                    isFlipped={flippedCardIndex === index}
-                    onClick={() => handleCardClick(index)}
-                />
-             ))}
-          </div>
-        </div>
+          );
+        })}
       </div>
     </div>
   );

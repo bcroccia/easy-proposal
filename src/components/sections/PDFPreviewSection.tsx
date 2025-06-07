@@ -346,7 +346,7 @@ const PDFPreviewSection: React.FC = () => {
             GERAÇÃO AUTOMÁTICA DE PDF
           </div>
           <h2 className="text-3xl font-bold mb-4 bg-gradient-to-r from-blue-300 to-cyan-400 bg-clip-text text-transparent">
-            PDFs Profissionais Gerados Automaticamente
+            PDFs Profissionais <br /> Gerados Automaticamente
           </h2>
           <p className="text-lg text-white/70 max-w-4xl mx-auto">
             Sistema completo para vendedoras criarem propostas e catálogos profissionais. 

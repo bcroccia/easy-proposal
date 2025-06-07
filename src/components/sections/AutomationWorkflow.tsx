@@ -71,7 +71,7 @@ const AutomationWorkflow: React.FC = () => {
             AUTOMAÇÃO EM AÇÃO
           </div>
           <h2 className="text-4xl font-bold mb-4 bg-gradient-to-r from-blue-300 to-cyan-400 bg-clip-text text-transparent">
-            Como Funciona Nosso Serviço de Automação
+            Como Funciona <br /> Nosso Serviço de Automação
           </h2>
           <p className="text-lg text-white/70">
             WhatsApp → Automação → PDF pronto em <strong className="text-cyan-400">30 segundos</strong>
