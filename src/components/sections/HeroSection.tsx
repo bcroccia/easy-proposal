@@ -181,7 +181,7 @@ const Card = ({ cardInfo, isFlipped, onClick }: CardProps) => {
       <div className="card-face card-back">
        <div className={`relative w-full h-full ${cardInfo.theme.bgColor} rounded-2xl p-6 flex flex-col justify-center items-center text-center backdrop-blur-sm ${cardInfo.theme.border} border`}>
             <h3 className="text-3xl font-bold mb-6 text-white">Principais Benefícios</h3>
-            <ul className="space-y-0 text-white/90 text-sm mb-6 text-left self-start w-full flex-grow">
+            <ul className="space-y-3 text-white/90 text-md mb-6 text-left self-start w-full flex-grow">
               {cardInfo.benefits.map((benefit, i) => (
                 <li key={i} className="flex items-center gap-3">
                   <span className={`${cardInfo.theme.accent} text-xl`}>✓</span>
@@ -190,7 +190,7 @@ const Card = ({ cardInfo, isFlipped, onClick }: CardProps) => {
               ))}
             </ul>
             <button className={`w-full py-3 ${cardInfo.theme.button} text-white font-medium rounded-lg transition-colors`}>
-               {cardInfo.title}
+                Contratar {cardInfo.title}
             </button>
        </div>
       </div>
@@ -200,32 +200,13 @@ const Card = ({ cardInfo, isFlipped, onClick }: CardProps) => {
 
 const HeroSection = () => {
   const [flippedCardIndex, setFlippedCardIndex] = useState<number | null>(null);
-  const [isAnimationActive, setIsAnimationActive] = useState(true);
-
-  // Efeito para a animação automática
-  useEffect(() => {
-    if (!isAnimationActive) return;
-
-    // A sequência da animação: vira card 0, desvira, vira card 1, desvira, e repete
-    const animationSequence = [0, null, 1, null];
-    let currentStep = 0;
-
-    const intervalId = setInterval(() => {
-        setFlippedCardIndex(animationSequence[currentStep]);
-        currentStep = (currentStep + 1) % animationSequence.length;
-    }, 2000); // Muda a cada 2 segundos
-
-    return () => clearInterval(intervalId); // Limpa o intervalo
-  }, [isAnimationActive]);
-
 
   const handleCardClick = (index: number) => {
-    setIsAnimationActive(false); // Para a animação automática ao clicar
     setFlippedCardIndex(flippedCardIndex === index ? null : index);
   };
     
   return (
-    <div className="justify-center">
+    <div className="w-full min-h-screen bg-gray-900 text-white font-sans flex items-center justify-center">
       {/* ESTILOS GLOBAIS */}
       <style>{`
         .card-container {
@@ -259,7 +240,7 @@ const HeroSection = () => {
             rgba(59, 130, 246, 0.8)
           );
           background-size: 300% 300%;
-          animation: bg-spin linear infinite;
+          animation: bg-spin 15s linear;
           z-index: 1;
         }
 
@@ -302,7 +283,6 @@ const HeroSection = () => {
       
       <div className="w-full p-4 md:p-8">
         {/* Container principal RESPONSIVO */}
-        
         <div className="flex flex-col lg:flex-row gap-12 md:gap-8 items-center w-full max-w-7xl mx-auto">
           
           {/* Conteúdo Hero */}
@@ -313,16 +293,9 @@ const HeroSection = () => {
               </span>
             </h1>
             <p className="text-lg md:text-xl text-white/80 mb-8 leading-relaxed">
-            Processos manuais estão atrasando as suas vendas? Automatize a criação de propostas e veja as suas conversões a aumentar. 
+              Automatize a criação de propostas com a solução ideal para seu negócio, seja via chat ou com uma plataforma completa.
             </p>
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-green-500/20 border border-green-400/30 rounded-full text-green-300 text-xs md:text-sm">
-             <span className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></span>
-             Redução de 78% no tempo + 35% mais conversões
-            </div>
-            <div className="mb-10 mt-6">
-                <h2 className="text-2xl font-bold text-white">Escolha Sua Solução Ideal</h2>
-            </div>
-            <div className="flex flex-wrap gap-4 justify-center lg:justify-start mt-6">
+            <div className="flex flex-wrap gap-4 justify-center lg:justify-start">
               <a href="#solucoes" className="px-8 py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg transition-all duration-300 flex items-center justify-center">
                 <span className="mr-2">💡</span>
                 Conheça as Soluções
