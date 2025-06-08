@@ -53,12 +53,12 @@ const NextSteps: React.FC = () => {
           </div>
         </div>
         
-        {/* Footer */}
+        {/* Footer
         <div className="mt-6 text-center">
           <p className="text-white/50 text-xs">
             Desenvolvido com ❤️ pela LoopHID | Soluções em Automação
           </p>
-        </div>
+        </div> */}
       </div>
 
       {/* <style jsx>{`

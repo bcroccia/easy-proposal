@@ -138,9 +138,9 @@ const NextSteps: React.FC = () => {
             
           </div>
         </div>
-        <div className="mt-8 text-white/70 text-sm text-center">
+        {/* <div className="mt-8 text-white/70 text-sm text-center">
           <p className="mb-2">Desenvolvido com ❤️ pela LoopHID | Soluções em Automação</p>
-        </div>
+        </div> */}
       </div>
     </section>
   );
