@@ -229,7 +229,7 @@ const FeaturesSection: React.FC = () => {
             Soluções Sob Medida
           </h2>
           <p className="text-lg text-white/70 max-w-3xl mx-auto leading-relaxed">
-            Nossa plataforma oferece todas as ferramentas necessárias para automatizar 
+            A Loophid AI oferece todas as ferramentas necessárias para automatizar 
             e acelerar seu processo comercial com tecnologia de ponta.
           </p>
         </div>

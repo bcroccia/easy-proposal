@@ -18,7 +18,7 @@ const cardData = [
     },
     benefits: [
       'Integração WhatsApp Business',
-      'Implementação em 24-48h',
+      'Disponibilidade em 24-48h',
       'Automação completa via chat',
     ],
     demo: (

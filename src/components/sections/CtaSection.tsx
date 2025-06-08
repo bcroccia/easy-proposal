@@ -148,7 +148,7 @@ const CtaSection: React.FC = () => {
               <div>
                 <div className="text-center mb-6">
                   <h4 className="text-xl font-bold text-white mb-2">
-                    🎁 Se fecharmos até <span className="text-red-300">13/06/2025</span>, você ganha:
+                    🎁 Se fecharmos até <span className="text-red-300">16/06/2025</span>, você ganha:
                   </h4>
                   <p className="text-white/70 text-sm">Benefícios exclusivos no valor de R$ 3.500</p>
                 </div>

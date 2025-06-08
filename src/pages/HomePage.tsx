@@ -5,13 +5,12 @@ import VideoDemo from '../components/sections/VideoDemo';
 import ChatDemo from '../components/sections/ChatDemo';
 import ImpactSection from '../components/sections/ImpactSection';
 import PricingSection from '../components/sections/PricingSection';
-import NextSteps from '../components/sections/NextSteps';
 import CtaSection from '../components/sections/CtaSection';
-// import ServiceOptionProps from '../components/sections/CompactServiceBuilder';
 import AutomationWorkflow from '../components/sections/AutomationWorkflow';
 import PDFPreviewSection from '../components/sections/PDFPreviewSection'; 
 import CompactServiceBuilder from '../components/sections/CompactServiceBuilder';
 import CompleteSolutionBuilder from '../components/sections/CompleteSolutionBuilder';
+import NextSteps from '../components/sections/ImpactSection';
 
 const HomePage: React.FC = () => {
   const [showFloatingCTA, setShowFloatingCTA] = useState(false);
@@ -86,12 +85,12 @@ const HomePage: React.FC = () => {
       <ChatDemo />
       <PDFPreviewSection />
       <CompactServiceBuilder />
-      <VideoDemo />
-      <CompleteSolutionBuilder />
       <ImpactSection />
+      <VideoDemo />
       <PricingSection />
       <CtaSection />
       <NextSteps />
+      <CompleteSolutionBuilder />
       
       {/* Floating CTA for mobile - responsive */}
       {showFloatingCTA && (

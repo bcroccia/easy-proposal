@@ -18,7 +18,7 @@ const cardData = [
     },
     benefits: [
       'Integração WhatsApp Business',
-      'Implementação em 24-48h',
+      'Disponibilidade em 24-48h',
       'Automação completa via chat',
     ],
     demo: (
@@ -181,7 +181,7 @@ const Card = ({ cardInfo, isFlipped, onClick }: CardProps) => {
       <div className="card-face card-back">
        <div className={`relative w-full h-full ${cardInfo.theme.bgColor} rounded-2xl p-6 flex flex-col justify-center items-center text-center backdrop-blur-sm ${cardInfo.theme.border} border`}>
             <h3 className="text-3xl font-bold mb-6 text-white">Principais Benefícios</h3>
-            <ul className="space-y-3 text-white/90 text-md mb-6 text-left self-start w-full flex-grow">
+            <ul className="space-y-0 text-white/90 text-sm mb-6 text-left self-start w-full flex-grow">
               {cardInfo.benefits.map((benefit, i) => (
                 <li key={i} className="flex items-center gap-3">
                   <span className={`${cardInfo.theme.accent} text-xl`}>✓</span>
@@ -206,7 +206,7 @@ const HeroSection = () => {
   };
     
   return (
-    <div className="w-full min-h-screen bg-gray-900 text-white font-sans flex items-center justify-center">
+    <div className="">
       {/* ESTILOS GLOBAIS */}
       <style>{`
         .card-container {
@@ -240,7 +240,7 @@ const HeroSection = () => {
             rgba(59, 130, 246, 0.8)
           );
           background-size: 300% 300%;
-          animation: bg-spin 15s linear;
+
           z-index: 1;
         }
 
